@@ -1,7 +1,6 @@
 <script lang="ts">
 	import ModuleContainer from '$components/module-container.svelte';
-	import { overall_data } from '$stores/data';
-	import { geography, geography_options, race_options } from '$stores/selectors';
+	import { overall_data, choropleth_data, geography } from '$stores/data';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/env';
 	import shapefile from '../data/ca_county_shapefile.json?raw';
@@ -55,14 +54,19 @@
 	onMount(async () => {
 		if (browser) {
 			const L = await import('leaflet');
+
 			map = L.map(container, {
 				minZoom: 6,
 				maxZoom: 10,
 				maxBounds: [
 					[42.9, -113.7],
 					[30.56, -125.6]
-				]
+				],
+				attributionControl: false
 			}).setView([36.973398, -119.631893], 6);
+
+			L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(map);
+
 			shapes = L.geoJSON(JSON.parse(shapefile), {
 				style: style,
 				onEachFeature: onEachFeature
@@ -81,11 +85,13 @@
 			map.setView([36.973398, -119.631893], 6);
 		} else {
 			const feature: FeatureGroup = Object.values(shapes['_layers']).filter(
-				(layer: Layer) => layer.feature.properties?.NAME === $geography
+				(layer: FeatureGroup) => layer.feature?.properties?.NAME === $geography
 			)[0];
 			click(feature);
 		}
 	}
+
+	$: console.log($choropleth_data);
 </script>
 
 <ModuleContainer title="map">

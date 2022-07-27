@@ -1,4 +1,5 @@
 <script>
+	import Explainer from '$components/explainer.svelte';
 	import Selector from '$components/selector.svelte';
 	import Map from '$components/map.svelte';
 	import Breakdown from '$components/breakdown.svelte';
@@ -6,6 +7,7 @@
 </script>
 
 <div class="module-panel">
+	<Explainer />
 	<Selector />
 	<Map />
 	<Snapshot />
@@ -15,16 +17,17 @@
 <style lang="scss">
 	.module-panel {
 		display: grid;
-		height: 100%;
+		height: 100vh;
+		max-height: 800px;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: auto 1fr 1fr;
 		grid-template-areas:
-			'. selector'
+			'explainer selector'
 			'map snapshot'
 			'map race-breakdown';
 		gap: 20px 32px;
 		max-width: 1120px;
 		margin: 0 auto;
-		padding: 32px 32px 0;
+		padding: 32px;
 	}
 </style>
