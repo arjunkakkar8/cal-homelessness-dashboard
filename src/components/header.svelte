@@ -52,7 +52,8 @@
 	h1 {
 		padding-left: 24px;
 		margin: 0 16px 0 0;
-		border-bottom: 6px solid $blue-5;
+		border-bottom: 6px solid var(--theme-color);
+		transition: border-bottom-color 0.2s ease-in-out;
 	}
 
 	ul {

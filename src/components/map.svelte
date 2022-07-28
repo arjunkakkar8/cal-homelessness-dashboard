@@ -1,33 +1,81 @@
 <script lang="ts">
 	import ModuleContainer from '$components/module-container.svelte';
-	import { overall_data, choropleth_data, geography } from '$stores/data';
+	import { choropleth_data, geography } from '$stores/data';
+	import { choropleth_color_range } from '$stores/colors';
 	import { onMount } from 'svelte';
 	import { browser } from '$app/env';
 	import shapefile from '../data/ca_county_shapefile.json?raw';
+	import { scaleLinear } from 'd3-scale';
+	import { format } from 'd3-format';
 	import 'leaflet/dist/leaflet.css';
-	import type { Map, GeoJSON, Layer, LeafletEvent, FeatureGroup } from 'leaflet';
+	import type { Map, GeoJSON, Layer, LeafletEvent, FeatureGroup, DomEvent } from 'leaflet';
 	import type { Feature } from 'geojson';
 
-	let container: HTMLDivElement, map: Map, shapes: GeoJSON;
+	let mouse = { x: 0, y: 0 };
+	let container: HTMLDivElement, hover: HTMLDivElement, map: Map, shapes: GeoJSON;
+	let countyName = '',
+		countyEstimate = '',
+		countyRate = '',
+		countyTotal = '',
+		hoverActive = false;
 
-	const style = () => {
-		return { weight: 1, fillOpacity: 0.7 };
+	const onMouseMove = (e: any) => {
+		const containerDims = container.getBoundingClientRect();
+		const hoverDims = hover.getBoundingClientRect();
+
+		let x = e.clientX - containerDims.left,
+			y = e.clientY - containerDims.top + 20;
+
+		x -= (x * hoverDims.width) / containerDims.width;
+
+		mouse.x = x;
+		mouse.y = y;
+	};
+
+	const style = (feature: Feature) => {
+		const countyData = $choropleth_data[feature?.properties?.NAME];
+		const colorScale = scaleLinear([0, 0.25], $choropleth_color_range);
+
+		const styleData = {
+			weight: 1,
+			fillOpacity: 0.7,
+			fillColor: '#00000020',
+			color: '#000',
+			opacity: 0.1
+		};
+
+		if (countyData) styleData.fillColor = colorScale(countyData.rate);
+
+		return styleData;
 	};
 
 	const highlightFeature = (feature: FeatureGroup) => {
-		feature.setStyle({
-			weight: 2,
-			color: '#666',
-			fillOpacity: 0.7
-		});
+		const countyData = $choropleth_data[feature.feature?.properties?.NAME];
 
-		feature.bringToFront();
+		if (countyData) {
+			hoverActive = true;
+			countyName = feature.feature?.properties?.NAME;
+			countyEstimate = format('.2s')(countyData.estimate);
+			countyRate = format('.1%')(countyData.rate);
+			countyTotal = format('.2s')(countyData.total);
+
+			console.log(countyData);
+
+			feature.setStyle({
+				weight: 2,
+				fillOpacity: 1,
+				opacity: 0.7
+			});
+
+			feature.bringToFront();
+		}
 	};
 
 	const resetHighlight = (feature: FeatureGroup) => {
-		if (feature.feature?.properties?.NAME === $geography) {
-			return;
-		}
+		hoverActive = false;
+
+		if (feature.feature?.properties?.NAME === $geography) return;
+
 		shapes.resetStyle(feature);
 	};
 
@@ -36,11 +84,12 @@
 	};
 
 	const click = (feature: FeatureGroup) => {
-		shapes.resetStyle();
-		console.log(feature);
-		zoomToFeature(feature);
-		highlightFeature(feature);
-		geography.set(feature.feature?.properties?.NAME || 'Statewide data');
+		if ($choropleth_data[feature.feature?.properties?.NAME]) {
+			shapes.resetStyle();
+			zoomToFeature(feature);
+			highlightFeature(feature);
+			geography.set(feature.feature?.properties?.NAME || 'Statewide data');
+		}
 	};
 
 	const onEachFeature = (feature: Feature, layer: Layer) => {
@@ -67,6 +116,8 @@
 
 			L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png').addTo(map);
 
+			map.zoomControl.setPosition('bottomleft');
+
 			shapes = L.geoJSON(JSON.parse(shapefile), {
 				style: style,
 				onEachFeature: onEachFeature
@@ -74,33 +125,106 @@
 		}
 	});
 
-	// $: console.log($overall_data);
-	// $: console.log($geography_options);
-	// $: console.log($race_options);
+	$: $choropleth_data, shapes?.resetStyle();
 
-	// $: if ($geography) map.fireEvent('click', {});
-	$: if (shapes) {
-		if ($geography === 'Statewide data') {
-			shapes.resetStyle();
-			map.setView([36.973398, -119.631893], 6);
-		} else {
-			const feature: FeatureGroup = Object.values(shapes['_layers']).filter(
-				(layer: FeatureGroup) => layer.feature?.properties?.NAME === $geography
-			)[0];
-			click(feature);
+	$: {
+		$choropleth_data;
+		if (shapes) {
+			hoverActive = false;
+			if ($geography === 'Statewide data') {
+				shapes.resetStyle();
+				map.setView([36.973398, -119.631893], 6);
+			} else {
+				const feature = Object.values(shapes['_layers'] as FeatureGroup).filter(
+					(layer) => layer.feature?.properties?.NAME === $geography
+				)[0];
+				click(feature);
+			}
 		}
 	}
-
-	$: console.log($choropleth_data);
 </script>
 
 <ModuleContainer title="map">
-	<div id="map-container" bind:this={container} />
+	<div id="map-container" bind:this={container} on:mousemove={onMouseMove} />
+	<div
+		class="hover"
+		bind:this={hover}
+		class:active={hoverActive}
+		style={`top:${mouse.y}px;left:${mouse.x}px;`}
+	>
+		<h3>{countyName}</h3>
+		<div class="hover-wrapper">
+			<div>
+				<h4>Housing Insecure</h4>
+				<p>{countyEstimate}</p>
+			</div>
+			<div>
+				<h4>Rate of Insecurity</h4>
+				<p>{countyRate}</p>
+			</div>
+			<div>
+				<h4>Total Population</h4>
+				<p>{countyTotal}</p>
+			</div>
+		</div>
+	</div>
 </ModuleContainer>
 
 <style lang="scss">
 	#map-container {
 		height: 100%;
 		background-color: $white;
+
+		:global(path) {
+			transition: fill 0.5s ease-in-out;
+		}
+	}
+
+	.hover {
+		position: absolute;
+		top: 0;
+		pointer-events: none;
+		opacity: 0;
+		transition: opacity 0.2s ease-in-out;
+		padding: 12px;
+		background-color: $white;
+		border: 1px solid $black;
+		z-index: 1000;
+
+		&.active {
+			opacity: 1;
+		}
+
+		&-wrapper {
+			display: flex;
+
+			div:not(:last-of-type) {
+				margin-right: 12px;
+			}
+
+			div {
+				width: fit-content;
+			}
+		}
+
+		h3 {
+			@include label-large;
+			font-weight: 600;
+			margin: 0 0 16px;
+			border-bottom: 4px solid var(--theme-color);
+			line-height: 16px;
+			width: fit-content;
+		}
+		h4 {
+			@include heading-xxxsmall;
+			color: $gray;
+			margin: 0 0 4px;
+			width: 100px;
+		}
+
+		p {
+			@include heading-xsmall;
+			margin: 0;
+		}
 	}
 </style>

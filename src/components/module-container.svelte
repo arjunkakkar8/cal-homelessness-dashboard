@@ -19,11 +19,13 @@
 		@include heading-xlarge;
 		margin: 0;
 		width: fit-content;
-		border-bottom: 6px solid $blue-5;
+		border-bottom: 6px solid var(--theme-color);
+		transition: border-bottom-color 0.2s ease-in-out;
 	}
 
 	.content-wrapper {
 		flex-grow: 1;
 		border: 1px solid $black;
+		position: relative;
 	}
 </style>

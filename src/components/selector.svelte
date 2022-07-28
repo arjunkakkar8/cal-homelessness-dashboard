@@ -71,9 +71,9 @@
 		background: none;
 		border: none;
 		appearance: none;
-		border-bottom: 1px dashed $blue-5;
+		border-bottom: 1px dashed var(--theme-color);
 		cursor: pointer;
-		transition: width 0.2s ease-in-out;
+		transition: width 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 	}
 
 	option {
