@@ -59,8 +59,6 @@
 			countyRate = format('.1%')(countyData.rate);
 			countyTotal = format('.2s')(countyData.total);
 
-			console.log(countyData);
-
 			feature.setStyle({
 				weight: 2,
 				fillOpacity: 1,
@@ -130,7 +128,6 @@
 	$: {
 		$choropleth_data;
 		if (shapes) {
-			hoverActive = false;
 			if ($geography === 'Statewide data') {
 				shapes.resetStyle();
 				map.setView([36.973398, -119.631893], 6);
@@ -141,6 +138,7 @@
 				click(feature);
 			}
 		}
+		hoverActive = false;
 	}
 </script>
 

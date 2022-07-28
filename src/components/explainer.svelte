@@ -1,5 +1,21 @@
+<script lang="ts">
+	import Definition from '$components/definition.svelte';
+</script>
+
 <div>
-	A metric that aims to estimate homeless and doubled up populations in <strong>California</strong>
+	A metric that aims to estimate
+	<Definition term="homeless">
+		As defined by the Department of Housing and Urban Development, people who are living in a place
+		not meant for human habitation, in emergency shelter, in transitional housing, or are exiting an
+		institution where they temporarily resided are considered homeless.
+	</Definition>
+	and
+	<Definition term="doubled up">
+		People who are living in a place not meant for human habitation, in emergency shelter, in
+		transitional housing, or are exiting an institution where they temporarily resided.
+	</Definition>
+	populations in
+	<strong>California</strong>
 	using
 	<a href="/" target="_blank" rel="noreferrer">student homelessness data</a>.
 </div>

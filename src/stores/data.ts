@@ -113,3 +113,23 @@ export const snapshot_data = derived(
 		return output;
 	}
 );
+
+export const breakdown_data = derived(
+	[overall_data, geography],
+	([$data, $geography]) => {
+		let filtered_data = $data;
+		let output: any = {
+			estimated: {},
+			doubledup: {},
+			total: {}
+		};
+
+		if ($geography === 'Statewide data') {
+		} else {
+			filtered_data = filtered_data.filter((row) => row.county === $geography);
+		}
+
+		return output;
+	},
+	{}
+);
