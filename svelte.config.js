@@ -1,13 +1,15 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
-const dev = process.env.NODE_ENV === 'development'
+const prod = process.env.NODE_ENV === 'production';
+const basePath = prod ? '/cal-homelessness-dashboard' : '';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: preprocess({
 		scss: {
-			prependData: `@import "./src/styles/global.scss";`
+			prependData: `@import "./src/styles/global.scss";
+			$asset-base-path: "${basePath}";`
 		}
 	}),
 
@@ -17,11 +19,10 @@ const config = {
 			$stores: 'src/stores'
 		},
 		prerender: {
-			default: true,
+			default: true
 		},
 		paths: {
-			base: dev ? "" : '/cal-homelessness-dashboard',
-			assets: dev ? "" : 'https://arjunkakkar8.github.io/cal-homelessness-dashboard',
+			base: basePath
 		},
 		adapter: adapter()
 	}

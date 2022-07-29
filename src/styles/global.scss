@@ -1,8 +1,9 @@
-@import './fonts.scss';
 @import './palette.scss';
 @import './mixins.scss';
 
 $nav-height: 80px;
+
+$display-font: 'NHaasGroteskDSPro', sans-serif;
 
 * {
 	font-family: $display-font;

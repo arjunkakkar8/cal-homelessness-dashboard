@@ -8,7 +8,7 @@
 	<div>
 		<Bars mode="thick" data={$breakdown_data.estimated} heading="Housing Insecure" />
 		<Bars data={$breakdown_data.doubledup} heading="Doubled Up" />
-		<Bars data={$breakdown_data.total} heading="Total Population"  />
+		<Bars data={$breakdown_data.total} heading="Total Population" />
 	</div>
 </ModuleContainer>
 

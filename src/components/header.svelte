@@ -5,15 +5,15 @@
 	const navItems = [
 		{
 			name: 'Dashboard',
-			path: '/'
+			path: ''
 		},
 		{
 			name: 'About',
-			path: '/about'
+			path: 'about'
 		},
 		{
 			name: 'Methods',
-			path: '/methods'
+			path: 'methods'
 		}
 	];
 </script>
@@ -24,7 +24,11 @@
 		<ul>
 			{#each navItems as item}
 				<li>
-					<a class:active={`${base}${item.path}` === $page.url.pathname} href="{base}{item.path}">
+					<a
+						class:active={`${base}/${item.path}`.replace(/\/+$/, '') ===
+							$page.url.pathname.replace(/\/+$/, '')}
+						href="{base}/{item.path}"
+					>
 						{item.name}
 					</a>
 				</li>
