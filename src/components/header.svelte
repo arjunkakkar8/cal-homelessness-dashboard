@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import { base } from '$app/paths';
 
 	const navItems = [
 		{
@@ -19,11 +20,11 @@
 
 <nav>
 	<div>
-		<h1><a class="nav-title" href="/">Housing Insecurity</a></h1>
+		<h1><a class="nav-title" href="{base}/">Housing Insecurity</a></h1>
 		<ul>
 			{#each navItems as item}
 				<li>
-					<a class:active={item.path === $page.url.pathname} href={item.path}>
+					<a class:active={item.path === $page.url.pathname} href="{base}{item.path}">
 						{item.name}
 					</a>
 				</li>

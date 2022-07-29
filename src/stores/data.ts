@@ -8,6 +8,9 @@ interface DataRow {
 	estimated_total: string;
 	total: string;
 	doubledup: string;
+	estimated_prop: string;
+	total_prop: string;
+	doubledup_prop: string;
 }
 
 // Define all the global states and data
@@ -119,17 +122,46 @@ export const breakdown_data = derived(
 	([$data, $geography]) => {
 		let filtered_data = $data;
 		let output: any = {
-			estimated: {},
-			doubledup: {},
-			total: {}
+			estimated: { White: 0, Latino: 0, Black: 0, AAPI: 0, AIAN: 0, 'Two or More': 0, Other: 0 },
+			doubledup: { White: 0, Latino: 0, Black: 0, AAPI: 0, AIAN: 0, 'Two or More': 0, Other: 0 },
+			total: { White: 0, Latino: 0, Black: 0, AAPI: 0, AIAN: 0, 'Two or More': 0, Other: 0 }
 		};
 
 		if ($geography === 'Statewide data') {
+			filtered_data.forEach((row) => {
+				if (!output.estimated[row.race]) {
+					output.estimated[row.race] = Number(row.estimated_total) || 0;
+					output.doubledup[row.race] = Number(row.doubledup) || 0;
+					output.total[row.race] = Number(row.total) || 0;
+				} else {
+					output.estimated[row.race] += Number(row.estimated_total) || 0;
+					output.doubledup[row.race] += Number(row.doubledup) || 0;
+					output.total[row.race] += Number(row.total) || 0;
+				}
+			});
+
+			Object.keys(output).forEach((key) => {
+				const total = Object.values(output[key] as number).reduce(
+					(acc: any, val: any) => acc + val,
+					0
+				);
+
+				Object.keys(output[key]).forEach((race_key: string) => {
+					output[key][race_key] = output[key][race_key] / total;
+				});
+			});
 		} else {
-			filtered_data = filtered_data.filter((row) => row.county === $geography);
+			filtered_data
+				.filter((row) => row.county === $geography)
+				.forEach((row) => {
+					output.estimated[row.race] = Number(row.estimated_prop) || 0;
+					output.doubledup[row.race] = Number(row.doubledup_prop) || 0;
+					output.total[row.race] = Number(row.total_prop) || 0;
+				});
 		}
 
 		return output;
 	},
+
 	{}
 );

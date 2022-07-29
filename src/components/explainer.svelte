@@ -17,7 +17,7 @@
 	populations in
 	<strong>California</strong>
 	using
-	<a href="/" target="_blank" rel="noreferrer">student homelessness data</a>.
+	<a href="http://example.com" target="_blank" rel="noreferrer">student homelessness data</a>.
 </div>
 
 <style lang="scss">

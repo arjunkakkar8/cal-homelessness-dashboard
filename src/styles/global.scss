@@ -1,14 +1,14 @@
-@import "./fonts.scss";
-@import "./palette.scss";
-@import "./mixins.scss";
+@import './fonts.scss';
+@import './palette.scss';
+@import './mixins.scss';
 
 $nav-height: 80px;
 
 * {
-    font-family: $display-font;
+	font-family: $display-font;
 }
 
 :global(body) {
-    padding: 0;
-    margin: $nav-height 0 0;
+	padding: 0;
+	margin: $nav-height 0 0;
 }

@@ -1,23 +1,27 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
+const dev = process.env.NODE_ENV === 'development'
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
 	preprocess: preprocess({
 		scss: {
-			prependData: `@import "./src/styles/global.scss";`,
+			prependData: `@import "./src/styles/global.scss";`
 		}
 	}),
 
 	kit: {
 		alias: {
 			$components: 'src/components',
-			$stores: 'src/stores',
+			$stores: 'src/stores'
 		},
 		prerender: {
-			default: true
+			default: true,
+		},
+		paths: {
+			base: dev ? "" : '/cal-homelessness-dashboard',
+			assets: dev ? "" : 'https://arjunkakkar8.github.io/cal-homelessness-dashboard',
 		},
 		adapter: adapter()
 	}
