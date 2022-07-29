@@ -24,7 +24,7 @@
 		<ul>
 			{#each navItems as item}
 				<li>
-					<a class:active={item.path === $page.url.pathname} href="{base}{item.path}">
+					<a class:active={`${base}${item.path}` === $page.url.pathname} href="{base}{item.path}">
 						{item.name}
 					</a>
 				</li>
