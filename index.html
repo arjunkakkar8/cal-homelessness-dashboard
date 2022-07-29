@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en" style="--theme-color: #00000000">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content="">
+	<link rel="stylesheet" href="/_app/immutable/assets/__layout-9c3b3624.css">
+	<link rel="stylesheet" href="/_app/immutable/assets/index-15daa690.css">
+	<link rel="modulepreload" href="/_app/immutable/start-3a9dfec8.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-d72f653a.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/index-b963ebf6.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/preload-helper-c28b9807.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/__layout.svelte-08fe0b04.js">
+	<link rel="modulepreload" href="/_app/immutable/chunks/colors-11a54478.js">
+	<link rel="modulepreload" href="/_app/immutable/pages/index.svelte-06f3c6e5.js">
+	</head>
+
+	<body>
+		
+
+
+<nav class="svelte-m0v60r"><div class="svelte-m0v60r"><h1 class="svelte-m0v60r"><a class="nav-title svelte-m0v60r" href="/">Housing Insecurity</a></h1>
+		<ul class="svelte-m0v60r"><li class="svelte-m0v60r"><a href="/" class="svelte-m0v60r active">Dashboard</a>
+				</li><li class="svelte-m0v60r"><a href="/about" class="svelte-m0v60r">About</a>
+				</li><li class="svelte-m0v60r"><a href="/methods" class="svelte-m0v60r">Methods</a>
+				</li></ul></div>
+</nav>
+<div class="module-panel svelte-jc6sk3"><div class="svelte-vy3fg3">A metric that aims to estimate
+	<span class="svelte-8ap7al">homeless
+	<div class="definition-hover svelte-8ap7al">As defined by the Department of Housing and Urban Development, people who are living in a place
+		not meant for human habitation, in emergency shelter, in transitional housing, or are exiting an
+		institution where they temporarily resided are considered homeless.
+	</div>
+</span>
+	and
+	<span class="svelte-8ap7al">doubled up
+	<div class="definition-hover svelte-8ap7al">People who are living in a place not meant for human habitation, in emergency shelter, in
+		transitional housing, or are exiting an institution where they temporarily resided.
+	</div>
+</span>
+	populations in
+	<strong class="svelte-vy3fg3">California</strong>
+	using
+	<a href="/" target="_blank" rel="noreferrer" class="svelte-vy3fg3">student homelessness data</a>.
+</div>
+	<div class="svelte-ri7k5p"><span class="svelte-ri7k5p"><label for="geo-select" class="svelte-ri7k5p">Geography</label>
+		<span class="placeholder svelte-ri7k5p">Statewide data</span>
+		<select id="geo-select" style="width:NaNpx" class="svelte-ri7k5p"><option value="Statewide data" class="svelte-ri7k5p">Statewide data
+				</option><option value="Alameda" class="svelte-ri7k5p">Alameda
+				</option><option value="Amador" class="svelte-ri7k5p">Amador
+				</option><option value="Butte" class="svelte-ri7k5p">Butte
+				</option><option value="Calaveras" class="svelte-ri7k5p">Calaveras
+				</option><option value="Colusa" class="svelte-ri7k5p">Colusa
+				</option><option value="Contra Costa" class="svelte-ri7k5p">Contra Costa
+				</option><option value="Del Norte" class="svelte-ri7k5p">Del Norte
+				</option><option value="El Dorado" class="svelte-ri7k5p">El Dorado
+				</option><option value="Fresno" class="svelte-ri7k5p">Fresno
+				</option><option value="Glenn" class="svelte-ri7k5p">Glenn
+				</option><option value="Humboldt" class="svelte-ri7k5p">Humboldt
+				</option><option value="Imperial" class="svelte-ri7k5p">Imperial
+				</option><option value="Inyo" class="svelte-ri7k5p">Inyo
+				</option><option value="Kern" class="svelte-ri7k5p">Kern
+				</option><option value="Kings" class="svelte-ri7k5p">Kings
+				</option><option value="Lake" class="svelte-ri7k5p">Lake
+				</option><option value="Lassen" class="svelte-ri7k5p">Lassen
+				</option><option value="Los Angeles" class="svelte-ri7k5p">Los Angeles
+				</option><option value="Madera" class="svelte-ri7k5p">Madera
+				</option><option value="Marin" class="svelte-ri7k5p">Marin
+				</option><option value="Mariposa" class="svelte-ri7k5p">Mariposa
+				</option><option value="Mendocino" class="svelte-ri7k5p">Mendocino
+				</option><option value="Merced" class="svelte-ri7k5p">Merced
+				</option><option value="Modoc" class="svelte-ri7k5p">Modoc
+				</option><option value="Mono" class="svelte-ri7k5p">Mono
+				</option><option value="Monterey" class="svelte-ri7k5p">Monterey
+				</option><option value="Napa" class="svelte-ri7k5p">Napa
+				</option><option value="Nevada" class="svelte-ri7k5p">Nevada
+				</option><option value="Orange" class="svelte-ri7k5p">Orange
+				</option><option value="Placer" class="svelte-ri7k5p">Placer
+				</option><option value="Plumas" class="svelte-ri7k5p">Plumas
+				</option><option value="Riverside" class="svelte-ri7k5p">Riverside
+				</option><option value="Sacramento" class="svelte-ri7k5p">Sacramento
+				</option><option value="San Benito" class="svelte-ri7k5p">San Benito
+				</option><option value="San Bernardino" class="svelte-ri7k5p">San Bernardino
+				</option><option value="San Diego" class="svelte-ri7k5p">San Diego
+				</option><option value="San Francisco" class="svelte-ri7k5p">San Francisco
+				</option><option value="San Joaquin" class="svelte-ri7k5p">San Joaquin
+				</option><option value="San Luis Obispo" class="svelte-ri7k5p">San Luis Obispo
+				</option><option value="San Mateo" class="svelte-ri7k5p">San Mateo
+				</option><option value="Santa Barbara" class="svelte-ri7k5p">Santa Barbara
+				</option><option value="Santa Clara" class="svelte-ri7k5p">Santa Clara
+				</option><option value="Santa Cruz" class="svelte-ri7k5p">Santa Cruz
+				</option><option value="Shasta" class="svelte-ri7k5p">Shasta
+				</option><option value="Sierra" class="svelte-ri7k5p">Sierra
+				</option><option value="Siskiyou" class="svelte-ri7k5p">Siskiyou
+				</option><option value="Solano" class="svelte-ri7k5p">Solano
+				</option><option value="Sonoma" class="svelte-ri7k5p">Sonoma
+				</option><option value="Stanislaus" class="svelte-ri7k5p">Stanislaus
+				</option><option value="Sutter" class="svelte-ri7k5p">Sutter
+				</option><option value="Tehama" class="svelte-ri7k5p">Tehama
+				</option><option value="Trinity" class="svelte-ri7k5p">Trinity
+				</option><option value="Tulare" class="svelte-ri7k5p">Tulare
+				</option><option value="Tuolumne" class="svelte-ri7k5p">Tuolumne
+				</option><option value="Ventura" class="svelte-ri7k5p">Ventura
+				</option><option value="Yolo" class="svelte-ri7k5p">Yolo
+				</option><option value="Yuba" class="svelte-ri7k5p">Yuba
+				</option></select></span>
+
+	<span class="svelte-ri7k5p">for</span>
+
+	<span class="svelte-ri7k5p"><label for="race-select" class="svelte-ri7k5p">Race</label>
+		<span class="placeholder svelte-ri7k5p">all races</span>
+		<select id="race-select" style="width:NaNpx" class="svelte-ri7k5p"><option value="all races" class="svelte-ri7k5p">all races
+				</option><option value="AAPI" class="svelte-ri7k5p">AAPI
+				</option><option value="AIAN" class="svelte-ri7k5p">AIAN
+				</option><option value="Black" class="svelte-ri7k5p">Black
+				</option><option value="Latino" class="svelte-ri7k5p">Latino
+				</option><option value="Two or More" class="svelte-ri7k5p">Two or More
+				</option><option value="White" class="svelte-ri7k5p">White
+				</option></select></span>
+</div>
+	<div class="module-container svelte-1uxu5zi" style="grid-area: map"><h2 class="svelte-1uxu5zi">map</h2>
+	<div class="content-wrapper svelte-1uxu5zi"><div id="map-container" class="svelte-18mo6c8"></div>
+	<div class="hover svelte-18mo6c8" style="top:0px;left:0px;"><h3 class="svelte-18mo6c8"></h3>
+		<div class="hover-wrapper svelte-18mo6c8"><div class="svelte-18mo6c8"><h4 class="svelte-18mo6c8">Housing Insecure</h4>
+				<p class="svelte-18mo6c8"></p></div>
+			<div class="svelte-18mo6c8"><h4 class="svelte-18mo6c8">Rate of Insecurity</h4>
+				<p class="svelte-18mo6c8"></p></div>
+			<div class="svelte-18mo6c8"><h4 class="svelte-18mo6c8">Total Population</h4>
+				<p class="svelte-18mo6c8"></p></div></div></div></div>
+</div>
+	<div class="module-container svelte-1uxu5zi" style="grid-area: snapshot"><h2 class="svelte-1uxu5zi">snapshot</h2>
+	<div class="content-wrapper svelte-1uxu5zi"></div>
+</div>
+	<div class="module-container svelte-1uxu5zi" style="grid-area: race-breakdown"><h2 class="svelte-1uxu5zi">race breakdown</h2>
+	<div class="content-wrapper svelte-1uxu5zi"><div class="svelte-1kwanxz"><h4 class="svelte-fl616y">Housing Insecure</h4>
+<div class="bar-container svelte-fl616y" style="height:50px"><div class="bar svelte-fl616y" style="background-color:#00BAA5; width:16.323723127604108%"></div><div class="bar svelte-fl616y" style="background-color:#009E52; width:64.66252849801765%"></div><div class="bar svelte-fl616y" style="background-color:#F2CB2F; width:9.122741424124603%"></div><div class="bar svelte-fl616y" style="background-color:#F59127; width:6.685729158236919%"></div><div class="bar svelte-fl616y" style="background-color:#8CCA08; width:0.5848372720323548%"></div><div class="bar svelte-fl616y" style="background-color:#E94A3F; width:1.862300428033117%"></div><div class="bar svelte-fl616y" style="background-color:#E7558B; width:0.7581400919512543%"></div>
+</div>
+		<h4 class="svelte-fl616y">Doubled Up</h4>
+<div class="bar-container svelte-fl616y" style="height:20px"><div class="bar svelte-fl616y" style="background-color:#00BAA5; width:12.273369604017955%"></div><div class="bar svelte-fl616y" style="background-color:#009E52; width:67.63141701579373%"></div><div class="bar svelte-fl616y" style="background-color:#F2CB2F; width:6.052882975480458%"></div><div class="bar svelte-fl616y" style="background-color:#F59127; width:11.520343049207934%"></div><div class="bar svelte-fl616y" style="background-color:#8CCA08; width:0.3241017226119879%"></div><div class="bar svelte-fl616y" style="background-color:#E94A3F; width:1.82698180837429%"></div><div class="bar svelte-fl616y" style="background-color:#E7558B; width:0.3709038245136491%"></div>
+</div>
+		<h4 class="svelte-fl616y">Total Population</h4>
+<div class="bar-container svelte-fl616y" style="height:20px"><div class="bar svelte-fl616y" style="background-color:#00BAA5; width:37.21795881396592%"></div><div class="bar svelte-fl616y" style="background-color:#009E52; width:39.05670641896828%"></div><div class="bar svelte-fl616y" style="background-color:#F2CB2F; width:5.5098107941033145%"></div><div class="bar svelte-fl616y" style="background-color:#F59127; width:14.634473399694597%"></div><div class="bar svelte-fl616y" style="background-color:#8CCA08; width:0.3303724461194655%"></div><div class="bar svelte-fl616y" style="background-color:#E94A3F; width:3.018939345482242%"></div><div class="bar svelte-fl616y" style="background-color:#E7558B; width:0.23173878166617168%"></div>
+</div></div></div>
+</div>
+</div>
+
+
+		<script type="module" data-sveltekit-hydrate="1uc42sd">
+		import { start } from "/_app/immutable/start-3a9dfec8.js";
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="1uc42sd"]').parentNode,
+			paths: {"base":"","assets":""},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [0, 3],
+				params: {},
+				routeId: ""
+			}
+		});
+	</script>
+	</body>
+</html>
