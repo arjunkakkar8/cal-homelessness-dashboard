@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ModuleContainer from '$components/module-container.svelte';
+	import Hover from '$components/hover.svelte';
 	import { choropleth_data, geography } from '$stores/data';
 	import { choropleth_color_range } from '$stores/colors';
 	import { onMount } from 'svelte';
@@ -11,26 +12,12 @@
 	import type { Map, GeoJSON, Layer, LeafletEvent, FeatureGroup, DomEvent } from 'leaflet';
 	import type { Feature } from 'geojson';
 
-	let mouse = { x: 0, y: 0 };
-	let container: HTMLDivElement, hover: HTMLDivElement, map: Map, shapes: GeoJSON;
+	let container: HTMLDivElement, map: Map, shapes: GeoJSON;
 	let countyName = '',
 		countyEstimate = '',
 		countyRate = '',
 		countyTotal = '',
 		hoverActive = false;
-
-	const onMouseMove = (e: any) => {
-		const containerDims = container.getBoundingClientRect();
-		const hoverDims = hover.getBoundingClientRect();
-
-		let x = e.clientX - containerDims.left,
-			y = e.clientY - containerDims.top + 20;
-
-		x -= (x * hoverDims.width) / containerDims.width;
-
-		mouse.x = x;
-		mouse.y = y;
-	};
 
 	const style = (feature: Feature) => {
 		const countyData = $choropleth_data[feature?.properties?.NAME];
@@ -143,29 +130,28 @@
 </script>
 
 <ModuleContainer title="map">
-	<div id="map-container" bind:this={container} on:mousemove={onMouseMove} />
-	<div
-		class="hover"
-		bind:this={hover}
-		class:active={hoverActive}
-		style={`top:${mouse.y}px;left:${mouse.x}px;`}
-	>
-		<h3>{countyName}</h3>
-		<div class="hover-wrapper">
-			<div>
-				<h4>Housing Insecure</h4>
-				<p>{countyEstimate}</p>
+	<Hover {hoverActive}>
+		<span slot="container">
+			<div id="map-container" bind:this={container} />
+		</span>
+		<span slot="hover">
+			<h3>{countyName}</h3>
+			<div class="hover-wrapper">
+				<div>
+					<h4>Housing Insecure</h4>
+					<p>{countyEstimate}</p>
+				</div>
+				<div>
+					<h4>Rate of Insecurity</h4>
+					<p>{countyRate}</p>
+				</div>
+				<div>
+					<h4>Total Population</h4>
+					<p>{countyTotal}</p>
+				</div>
 			</div>
-			<div>
-				<h4>Rate of Insecurity</h4>
-				<p>{countyRate}</p>
-			</div>
-			<div>
-				<h4>Total Population</h4>
-				<p>{countyTotal}</p>
-			</div>
-		</div>
-	</div>
+		</span>
+	</Hover>
 </ModuleContainer>
 
 <style lang="scss">
@@ -178,51 +164,35 @@
 		}
 	}
 
-	.hover {
-		position: absolute;
-		top: 0;
-		pointer-events: none;
-		opacity: 0;
-		transition: opacity 0.2s ease-in-out;
-		padding: 12px;
-		background-color: $white;
-		border: 1px solid $black;
-		z-index: 1000;
+	.hover-wrapper {
+		display: flex;
 
-		&.active {
-			opacity: 1;
+		div:not(:last-of-type) {
+			margin-right: 12px;
 		}
 
-		&-wrapper {
-			display: flex;
-
-			div:not(:last-of-type) {
-				margin-right: 12px;
-			}
-
-			div {
-				width: fit-content;
-			}
-		}
-
-		h3 {
-			@include label-large;
-			font-weight: 600;
-			margin: 0 0 16px;
-			border-bottom: 4px solid var(--theme-color);
-			line-height: 16px;
+		div {
 			width: fit-content;
 		}
-		h4 {
-			@include heading-xxxsmall;
-			color: $gray;
-			margin: 0 0 4px;
-			width: 100px;
-		}
+	}
 
-		p {
-			@include heading-xsmall;
-			margin: 0;
-		}
+	h3 {
+		@include label-large;
+		font-weight: 600;
+		margin: 0 0 16px;
+		border-bottom: 4px solid var(--theme-color);
+		line-height: 16px;
+		width: fit-content;
+	}
+	h4 {
+		@include heading-xxxsmall;
+		color: $gray;
+		margin: 0 0 4px;
+		width: 100px;
+	}
+
+	p {
+		@include heading-xsmall;
+		margin: 0;
 	}
 </style>
