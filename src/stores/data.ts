@@ -1,6 +1,7 @@
 import { csvParse } from 'd3-dsv';
 import { readable, derived, writable } from 'svelte/store';
-import raw from '../data/homeless_estimates.csv?raw';
+import overallRaw from '../data/homeless_estimates.csv?raw';
+import pitRaw from '../data/pit_count.csv?raw';
 
 interface DataRow {
 	county: string;
@@ -13,8 +14,16 @@ interface DataRow {
 	doubledup_prop: string;
 }
 
+interface PitRow {
+	county: string;
+	pit: string;
+	source: string;
+	disclaimer: string;
+}
+
 // Define all the global states and data
-export const overall_data = readable(csvParse(raw) as DataRow[]);
+export const overall_data = readable(csvParse(overallRaw) as DataRow[]);
+export const pit_data = readable(csvParse(pitRaw) as PitRow[]);
 export const geography = writable('Statewide data');
 export const race = writable('all races');
 
@@ -55,6 +64,7 @@ export const choropleth_data = derived(
 		if ($race === 'all races') {
 			$data.forEach((row) => {
 				const county = row.county;
+				if (county === 'California') return;
 				if (!output[county]) {
 					output[county] = {
 						estimate: Number(row.estimated_total) || 0,
@@ -86,19 +96,26 @@ export const choropleth_data = derived(
 );
 
 export const snapshot_data = derived(
-	[overall_data, geography, race],
-	([$data, $geography, $race]) => {
+	[overall_data, pit_data, geography, race],
+	([$data, $pit, $geography, $race]) => {
 		let filtered_data = $data;
+		let pit;
 		const output = {
 			estimate: 0,
 			total: 0,
 			doubledup: 0,
 			pit: 0,
-			rate: 0
+			rate: 0,
+			pit_source: '',
+			pit_disclaimer: ''
 		};
 
 		if ($geography !== 'Statewide data') {
 			filtered_data = filtered_data.filter((row) => row.county === $geography);
+			pit = $pit.filter((row) => row.county === $geography)[0];
+		} else {
+			filtered_data = filtered_data.filter((row) => row.county === 'California');
+			pit = $pit.filter((row) => row.county === 'California')[0];
 		}
 
 		if ($race !== 'all races') {
@@ -111,6 +128,9 @@ export const snapshot_data = derived(
 			output.doubledup += Number(row.doubledup) || 0;
 		});
 
+		output.pit = Number(pit.pit) || 0;
+		output.pit_source = pit.source;
+		output.pit_disclaimer = pit.disclaimer;
 		output.rate = output.estimate / output.total || 0;
 
 		return output;
@@ -128,37 +148,16 @@ export const breakdown_data = derived(
 		};
 
 		if ($geography === 'Statewide data') {
-			filtered_data.forEach((row) => {
-				if (!output.estimated[row.race]) {
-					output.estimated[row.race] = Number(row.estimated_total) || 0;
-					output.doubledup[row.race] = Number(row.doubledup) || 0;
-					output.total[row.race] = Number(row.total) || 0;
-				} else {
-					output.estimated[row.race] += Number(row.estimated_total) || 0;
-					output.doubledup[row.race] += Number(row.doubledup) || 0;
-					output.total[row.race] += Number(row.total) || 0;
-				}
-			});
-
-			Object.keys(output).forEach((key) => {
-				const total = Object.values(output[key] as number).reduce(
-					(acc: any, val: any) => acc + val,
-					0
-				);
-
-				Object.keys(output[key]).forEach((race_key: string) => {
-					output[key][race_key] = output[key][race_key] / total;
-				});
-			});
+			filtered_data = filtered_data.filter((row) => row.county === 'California');
 		} else {
-			filtered_data
-				.filter((row) => row.county === $geography)
-				.forEach((row) => {
-					output.estimated[row.race] = Number(row.estimated_prop) || 0;
-					output.doubledup[row.race] = Number(row.doubledup_prop) || 0;
-					output.total[row.race] = Number(row.total_prop) || 0;
-				});
+			filtered_data = filtered_data.filter((row) => row.county === $geography);
 		}
+
+		filtered_data.forEach((row) => {
+			output.estimated[row.race] = Number(row.estimated_prop) || 0;
+			output.doubledup[row.race] = Number(row.doubledup_prop) || 0;
+			output.total[row.race] = Number(row.total_prop) || 0;
+		});
 
 		return output;
 	},

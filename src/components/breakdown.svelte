@@ -27,7 +27,7 @@
 
 <ModuleContainer title="race breakdown">
 	<Hover {hoverActive}>
-		<span slot="container">
+		<span slot="content">
 			<div class="bars-container">
 				<Bars
 					mode="thick"

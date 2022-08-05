@@ -19,7 +19,7 @@
 </script>
 
 <div class="hover-container" on:mousemove={onMouseMove} bind:this={container}>
-	<slot name="container" />
+	<slot name="content" />
 	<div
 		class="hover"
 		class:active={hoverActive}
@@ -33,7 +33,9 @@
 <style lang="scss">
 	.hover-container {
 		height: 100%;
+		width: 100%;
 	}
+
 	.hover {
 		position: absolute;
 		top: 0;

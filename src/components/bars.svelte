@@ -13,8 +13,8 @@
 			class="bar"
 			class:highlighted={activeRace === key}
 			style={`background-color:${$color_list[key][1]}; width:${data[key] * 100}%`}
-			on:mouseover={() => (activeRace = key)}
-			on:mouseout={() => (activeRace = '')}
+			on:mouseenter={() => (activeRace = key)}
+			on:mouseleave={() => (activeRace = '')}
 		/>
 	{/each}
 </div>
@@ -36,9 +36,8 @@
 
 	.bar {
 		height: 100%;
-		transition: width 0.5s ease-in-out;
 		outline: 1.5px solid $white;
-		transition: outline-color 0.2s ease-in-out;
+		transition: width 0.5s ease-in-out, outline-color 0.2s ease-in-out;
 
 		&.highlighted {
 			z-index: 5;

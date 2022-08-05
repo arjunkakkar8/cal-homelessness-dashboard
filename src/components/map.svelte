@@ -131,7 +131,7 @@
 
 <ModuleContainer title="map">
 	<Hover {hoverActive}>
-		<span slot="container">
+		<span slot="content">
 			<div id="map-container" bind:this={container} />
 		</span>
 		<span slot="hover">

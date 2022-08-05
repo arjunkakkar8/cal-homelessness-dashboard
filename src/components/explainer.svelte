@@ -5,14 +5,28 @@
 <div>
 	A metric that aims to estimate
 	<Definition term="homeless">
-		As defined by the Department of Housing and Urban Development, people who are living in a place
-		not meant for human habitation, in emergency shelter, in transitional housing, or are exiting an
-		institution where they temporarily resided are considered homeless.
+		<p>
+			Federal, state, and local agencies use different definitions of homelessness, which affects
+			eligibility and services available to individuals and families. The United States Department
+			of Housing and Urban Development (HUD) definition of homeless is most consequential, given
+			that it defines who is eligible for federally-funded homeless assistance programs.
+		</p>
+		<p>
+			The HUD definition includes four categories of homelessness: literally homeless, imminent risk
+			of homelessness, homeless under other federal statutes, or fleeing/attempting to flee domestic
+			violence. You can find more information about HUD’s definition of homelessness <a
+				href="https://www.hudexchange.info/news/huds-definition-of-homelessness-resources-and-guidance/"
+				target="_blank"
+				rel="noreferrer">here</a
+			>.
+		</p>
 	</Definition>
 	and
 	<Definition term="doubled up">
-		People who are living in a place not meant for human habitation, in emergency shelter, in
-		transitional housing, or are exiting an institution where they temporarily resided.
+		Doubled up refers to individuals sharing the housing of other persons due to loss of housing,
+		economic hardship, or a similar reason. While there is no standard definition for doubled up,
+		advocates and academics use it to refer to individuals who aren’t encompassed by homelessness in
+		the traditional sense but lack stable and permanent housing.
 	</Definition>
 	populations in
 	<strong>California</strong>
@@ -30,5 +44,9 @@
 		a {
 			color: $black;
 		}
+	}
+
+	p {
+		margin: 0 0 8px;
 	}
 </style>

@@ -8,7 +8,12 @@
 
 <span on:mouseenter={activateHover} on:mouseleave={deactivateHover}>
 	{term}
-	<div class="definition-hover" class:active={hoverActive}>
+	<div
+		class="definition-hover"
+		class:active={hoverActive}
+		on:mouseenter={activateHover}
+		on:mouseleave={deactivateHover}
+	>
 		<slot />
 	</div>
 </span>
@@ -28,7 +33,8 @@
 		position: absolute;
 		top: 100%;
 		left: 50%;
-		transform: translate(-50%, 4px);
+		margin-top: 2px;
+		transform: translate(-50%);
 		background-color: $white;
 		border: 1px solid $black;
 		padding: 12px;
@@ -40,6 +46,7 @@
 
 		&.active {
 			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 </style>
