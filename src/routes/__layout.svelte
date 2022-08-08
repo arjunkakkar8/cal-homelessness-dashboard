@@ -12,6 +12,10 @@
 	$: if (mounted) document.documentElement.style.setProperty('--theme-color', $theme_color);
 </script>
 
+<svelte:head>
+	<title>Housing Insecurity</title>
+</svelte:head>
+
 <Header />
 <slot />
 

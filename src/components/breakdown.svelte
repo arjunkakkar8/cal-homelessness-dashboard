@@ -28,15 +28,24 @@
 <ModuleContainer title="race breakdown">
 	<Hover {hoverActive}>
 		<span slot="content">
-			<div class="bars-container">
-				<Bars
-					mode="thick"
-					data={$breakdown_data.estimated}
-					heading="Housing Insecure"
-					bind:activeRace
-				/>
-				<Bars data={$breakdown_data.doubledup} heading="Doubled Up" bind:activeRace />
-				<Bars data={$breakdown_data.total} heading="Total Population" bind:activeRace />
+			<div class="content-container">
+				<div class="bars-container">
+					<Bars
+						mode="thick"
+						data={$breakdown_data.estimated}
+						heading="Housing Insecure"
+						bind:activeRace
+					/>
+					<Bars data={$breakdown_data.doubledup} heading="Doubled Up" bind:activeRace />
+					<Bars data={$breakdown_data.total} heading="Total Population" bind:activeRace />
+				</div>
+				<div class="legend-container">
+					{#each Object.keys($color_list) as legendItem}
+						{#if legendItem !== 'all races'}
+							<h4 class="legend-item" style={`background-color:${$color_list[legendItem][1]};`}>{legendItem}</h4>
+						{/if}
+					{/each}
+				</div>
 			</div>
 		</span>
 		<span slot="hover">
@@ -60,8 +69,17 @@
 </ModuleContainer>
 
 <style lang="scss">
+	.content-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		width: 100%;
+	}
+
 	.bars-container {
-		margin: 16px;
+		padding: 16px;
+		flex-grow: 1;
 	}
 
 	.hover-wrapper {
@@ -84,6 +102,7 @@
 		line-height: 16px;
 		width: fit-content;
 	}
+
 	h4 {
 		@include heading-xxxsmall;
 		color: $gray;
@@ -94,5 +113,20 @@
 	p {
 		@include heading-xsmall;
 		margin: 0 0 4px;
+	}
+
+	.legend-container{
+		display: flex;
+		padding: 16px;
+	}
+
+	.legend-item{
+		color: $white;
+		flex-grow: 1;
+		width: unset;
+		text-align: center;
+		outline: 1.5px solid $white;
+		height: 20px;
+		line-height: 20px;
 	}
 </style>

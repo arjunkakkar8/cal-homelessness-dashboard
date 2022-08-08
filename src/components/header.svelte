@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
 
@@ -42,10 +42,14 @@
 		position: fixed;
 		top: 0;
 		width: 100%;
-		height: $nav-height;
+		height: $nav-height-mobile;
 		border-bottom: 1px solid $gray;
 		background-color: $white;
-		z-index: 1000;
+		z-index: 10000;
+
+		@include tablet{
+			height: $nav-height-desktop;
+		}
 	}
 
 	div {

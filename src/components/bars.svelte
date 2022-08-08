@@ -1,17 +1,17 @@
 <script>
 	import { color_list } from '$stores/colors';
 	export let data;
-	export let mode;
 	export let heading;
 	export let activeRace;
+	export let mode = 'thin';
 </script>
 
 <h4>{heading}</h4>
-<div class="bar-container" style={`height:${mode === 'thick' ? 50 : 20}px`}>
+<div class="bar-container" style={`height:${mode === 'thick' ? 32 : 15}%; min-height:${mode === 'thick' ? 50 : 20}px`}>
 	{#each Object.keys(data) as key}
 		<div
 			class="bar"
-			class:highlighted={activeRace === key}
+			class:highlighted={data[key] > 0 && activeRace === key}
 			style={`background-color:${$color_list[key][1]}; width:${data[key] * 100}%`}
 			on:mouseenter={() => (activeRace = key)}
 			on:mouseleave={() => (activeRace = '')}
@@ -31,7 +31,10 @@
 		position: relative;
 		background-color: $light-gray;
 		display: flex;
-		margin-bottom: 16px;
+
+		&:not(:last-of-type) {
+			margin-bottom: 16px;
+		}
 	}
 
 	.bar {

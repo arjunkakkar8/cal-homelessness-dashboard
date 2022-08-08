@@ -1,15 +1,13 @@
 <script>
 	import ModuleContainer from '$components/module-container.svelte';
 	import Hover from '$components/hover-static.svelte';
-	import { snapshot_data, race } from '$stores/data';
+	import { snapshot_data, race, geography } from '$stores/data';
+	import { base } from '$app/paths';
 	import { format } from 'd3-format';
 
 	let doubledupInactive = false,
 		pointintimeInactive = false;
 
-	$: {
-		console.log($snapshot_data);
-	}
 	$: doubledupInactive = $snapshot_data.doubledup === 0;
 	$: pointintimeInactive = $race !== 'all races';
 </script>
@@ -29,11 +27,40 @@
 				<h4 class="narrow">total population</h4>
 				<div class="small">{format('.2s')($snapshot_data.total)}</div>
 			</div>
-			<Hover />
+			<Hover>
+				<h3>Housing Insecurity</h3>
+				<p>
+					Housing insecure estimates were created using the California Department of Education’s
+					student homelessness counts. In {$geography === 'Statewide data'
+						? 'California'
+						: `${$geography} county`}, there were
+					<strong>{format(',')($snapshot_data.students)}</strong>
+					{$race === 'all races' ? 'total' : $race} homeless students, and we used a multiplier of
+					<strong>{format('.2s')($snapshot_data.estimate / $snapshot_data.students)}</strong> to estimate
+					the total housing insecure counts.
+				</p>
+				<p>
+					<a href="{base}/methods">See methods</a> to learn more about how we calculate housing insecurity.
+				</p>
+			</Hover>
 		</div>
 
 		<div class="snapshot-container" class:inactive={doubledupInactive}>
-			<Hover />
+			<Hover>
+				<h3>Doubled Up</h3>
+				<p>
+					Individuals were identified as doubled up using the 5-year 2019 American Community Survey
+					(ACS). While the ACS does not identify doubled up counts, we use the definition provided
+					by researchers in <a href="https://doi.org/10.1080/10511482.2021.1981976" target="_blank"
+						>this 2021 report</a
+					>, which identified an individual as doubled up if they were “poor or near poor” and lived
+					in a household where they did not share household costs and were not customarily under the
+					responsibility of the head of household.
+				</p>
+				<p>
+					<a href="{base}/methods">See methods</a> to learn more about how we calculated doubled up estimates.
+				</p>
+			</Hover>
 			<div>
 				<h4>doubled up estimate</h4>
 				<div class="medium">
@@ -43,10 +70,27 @@
 		</div>
 
 		<div class="snapshot-container" class:inactive={pointintimeInactive}>
-			<Hover />
+			<Hover>
+				<h3>Point-in-time Counts</h3>
+				<p>
+					The Point-in-Time (PIT) count estimates the total number of sheltered and unsheltered
+					people experiencing homelessness. These estimates are mandated by the U.S. Department of
+					Housing and Urban Development (HUD) as a requirement for federal funding. California’s PIT
+					counts are provided by the state’s 44 Continuum of Care (CoC) partners and are typically
+					conducted annually in January. Due to Covid-19, many CoCs delayed their counts in 2022.
+					You can learn more about HUD’s PIT counts <a
+						href="https://www.hudexchange.info/trainings/courses/point-in-time-pit-count-standards-and-methodologies-training/"
+						target="_blank">here</a
+					>.
+				</p>
+				<p>
+					The {$geography === 'Statewide data' ? 'California' : `${$geography} county`} counts were obtained
+					from <a href={$snapshot_data.pit_source} target="_blank">here</a>. {$snapshot_data.pit_disclaimer}
+				</p>
+			</Hover>
 			<div>
 				<h4>Point in time count</h4>
-				<div class="medium">{format('.2s')($snapshot_data.pit)}</div>
+				<div class="medium">{pointintimeInactive ? 'NA' : format('.2s')($snapshot_data.pit)}</div>
 			</div>
 		</div>
 	</div>
@@ -68,8 +112,8 @@
 		padding: 16px;
 		align-items: center;
 		transition: color 0.2s ease-in-out;
+
 		&.inactive {
-			//opacity: 0.2;
 			color: rgba($gray, 0.1);
 		}
 
@@ -139,5 +183,23 @@
 		@include heading-xlarge;
 		line-height: 40px;
 		font-weight: 700;
+	}
+
+	h3 {
+		@include label-large;
+		font-weight: 600;
+		margin: 0 0 16px;
+		border-bottom: 4px solid var(--theme-color);
+		line-height: 16px;
+		width: fit-content;
+	}
+
+	p {
+		@include paragraph-small;
+		margin: 0 0 8px;
+	}
+
+	a {
+		color: $black;
 	}
 </style>

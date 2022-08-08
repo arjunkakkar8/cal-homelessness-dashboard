@@ -31,7 +31,9 @@
 	populations in
 	<strong>California</strong>
 	using
-	<a href="http://example.com" target="_blank" rel="noreferrer">student homelessness data</a>.
+	<a href="https://www.cde.ca.gov/ds/sg/homelessyouth.asp" target="_blank" rel="noreferrer"
+		>student homelessness data</a
+	>.
 </div>
 
 <style lang="scss">

@@ -6,6 +6,7 @@ import pitRaw from '../data/pit_count.csv?raw';
 interface DataRow {
 	county: string;
 	race: string;
+	students: string;
 	estimated_total: string;
 	total: string;
 	doubledup: string;
@@ -31,7 +32,10 @@ export const race = writable('all races');
 export const geography_options = derived(
 	overall_data,
 	($data) => {
-		return ['Statewide data', ...new Set($data.map((d) => d['county']))];
+		return [
+			'Statewide data',
+			...new Set($data.filter((d) => d.county !== 'California').map((d) => d['county']))
+		];
 	},
 	['Statewide data']
 );
@@ -106,6 +110,7 @@ export const snapshot_data = derived(
 			doubledup: 0,
 			pit: 0,
 			rate: 0,
+			students: 0,
 			pit_source: '',
 			pit_disclaimer: ''
 		};
@@ -126,6 +131,7 @@ export const snapshot_data = derived(
 			output.estimate += Number(row.estimated_total) || 0;
 			output.total += Number(row.total) || 0;
 			output.doubledup += Number(row.doubledup) || 0;
+			output.students += Number(row.students) || 0;
 		});
 
 		output.pit = Number(pit.pit) || 0;

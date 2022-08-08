@@ -157,6 +157,7 @@
 <style lang="scss">
 	#map-container {
 		height: 100%;
+		min-height: 500px;
 		background-color: $white;
 
 		:global(path) {
@@ -184,6 +185,7 @@
 		line-height: 16px;
 		width: fit-content;
 	}
+
 	h4 {
 		@include heading-xxxsmall;
 		color: $gray;

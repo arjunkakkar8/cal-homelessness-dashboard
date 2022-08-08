@@ -8,7 +8,12 @@
 		on:mouseenter={() => (hoverActive = true)}
 		on:mouseleave={() => (hoverActive = false)}
 	/>
-	<div class="hover" class:active={hoverActive}>
+	<div
+		class="hover"
+		class:active={hoverActive}
+		on:mouseenter={() => (hoverActive = true)}
+		on:mouseleave={() => (hoverActive = false)}
+	>
 		<slot />
 	</div>
 </div>
@@ -20,6 +25,7 @@
 		right: 0;
 		height: 0;
 		width: 0;
+		color: $black;
 	}
 
 	.marker {
@@ -37,18 +43,22 @@
 
 	.hover {
 		position: absolute;
-		top: 20px;
-		right: 20px;
-		pointer-events: none;
+		width: 300px;
+		top: 10px;
+		right: 10px;
 		opacity: 0;
 		transition: opacity 0.2s ease-in-out;
 		padding: 12px;
 		background-color: $white;
 		border: 1px solid $black;
+		pointer-events: none;
 		z-index: 1000;
+		max-height: 300px;
+		overflow-y: scroll;
 
 		&.active {
 			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 </style>
