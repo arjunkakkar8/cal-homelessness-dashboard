@@ -14,7 +14,7 @@ $display-font: 'NHaasGroteskDSPro', sans-serif;
 	padding: 0;
 	margin: $nav-height-mobile 0 0;
 
-	@include tablet{
+	@include tablet {
 		margin: $nav-height-desktop 0 0;
 	}
 }

@@ -7,7 +7,10 @@
 </script>
 
 <h4>{heading}</h4>
-<div class="bar-container" style={`height:${mode === 'thick' ? 32 : 15}%; min-height:${mode === 'thick' ? 50 : 20}px`}>
+<div
+	class="bar-container"
+	style={`height:${mode === 'thick' ? 32 : 15}%; min-height:${mode === 'thick' ? 50 : 20}px`}
+>
 	{#each Object.keys(data) as key}
 		<div
 			class="bar"

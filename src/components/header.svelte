@@ -47,7 +47,7 @@
 		background-color: $white;
 		z-index: 10000;
 
-		@include tablet{
+		@include tablet {
 			height: $nav-height-desktop;
 		}
 	}

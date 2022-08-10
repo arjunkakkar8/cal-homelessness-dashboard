@@ -42,7 +42,9 @@
 				<div class="legend-container">
 					{#each Object.keys($color_list) as legendItem}
 						{#if legendItem !== 'all races'}
-							<h4 class="legend-item" style={`background-color:${$color_list[legendItem][1]};`}>{legendItem}</h4>
+							<h4 class="legend-item" style={`background-color:${$color_list[legendItem][1]};`}>
+								{legendItem}
+							</h4>
 						{/if}
 					{/each}
 				</div>
@@ -115,12 +117,12 @@
 		margin: 0 0 4px;
 	}
 
-	.legend-container{
+	.legend-container {
 		display: flex;
 		padding: 16px;
 	}
 
-	.legend-item{
+	.legend-item {
 		color: $white;
 		flex-grow: 1;
 		width: unset;

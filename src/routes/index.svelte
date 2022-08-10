@@ -37,9 +37,9 @@
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: auto 1fr 1fr;
 			grid-template-areas:
-			'explainer selector'
-			'map snapshot'
-			'map race-breakdown';
+				'explainer selector'
+				'map snapshot'
+				'map race-breakdown';
 		}
 	}
 </style>
