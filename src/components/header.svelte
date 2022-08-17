@@ -8,12 +8,16 @@
 			path: ''
 		},
 		{
-			name: 'About',
-			path: 'about'
+			name: 'Table',
+			path: 'table'
 		},
 		{
 			name: 'Methods',
 			path: 'methods'
+		},
+		{
+			name: 'About',
+			path: 'about'
 		}
 	];
 </script>

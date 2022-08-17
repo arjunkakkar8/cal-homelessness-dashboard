@@ -1,9 +1,9 @@
 <script>
-	import Explainer from '$components/explainer.svelte';
-	import Selector from '$components/selector.svelte';
-	import Map from '$components/map.svelte';
-	import Breakdown from '$components/breakdown.svelte';
-	import Snapshot from '$components/snapshot.svelte';
+	import Explainer from '$components/index/explainer.svelte';
+	import Selector from '$components/index/selector.svelte';
+	import Map from '$components/index/map.svelte';
+	import Breakdown from '$components/index/breakdown.svelte';
+	import Snapshot from '$components/index/snapshot.svelte';
 </script>
 
 <div class="module-panel">
@@ -16,11 +16,11 @@
 
 <style lang="scss">
 	.module-panel {
-		display: grid;
-		gap: 20px 32px;
 		margin: 0 auto;
 		padding: 32px;
 		max-width: 500px;
+		display: grid;
+		gap: 20px 32px;
 		grid-template-columns: 1fr;
 		grid-auto-rows: auto;
 		grid-template-areas:
@@ -30,10 +30,11 @@
 			'snapshot'
 			'race-breakdown';
 
+
 		@include desktop {
+			max-width: 1120px;
 			height: 100vh;
 			max-height: 800px;
-			max-width: 1120px;
 			grid-template-columns: 1fr 1fr;
 			grid-template-rows: auto 1fr 1fr;
 			grid-template-areas:

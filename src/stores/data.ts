@@ -27,6 +27,8 @@ export const overall_data = readable(csvParse(overallRaw) as DataRow[]);
 export const pit_data = readable(csvParse(pitRaw) as PitRow[]);
 export const geography = writable('Statewide data');
 export const race = writable('all races');
+export const table_mode = writable('counts');
+export const table_sort = writable('Total');
 
 // Compute derived stores for the rest of the application
 export const geography_options = derived(
@@ -168,5 +170,61 @@ export const breakdown_data = derived(
 		return output;
 	},
 
+	{}
+);
+
+const table_data_unsorted = derived(
+	[overall_data, table_mode],
+	([$data, $mode]) => {
+		const temp: any = {};
+		const output: any = [];
+
+		$data.forEach((row) => {
+			const county = row.county;
+			if (county === 'California') return;
+			if (!temp[county]) {
+				temp[county] = {
+					County: '',
+					Population: 0,
+					Total: 0,
+					White: 0,
+					Latino: 0,
+					Black: 0,
+					AAPI: 0,
+					AIAN: 0,
+					'Two or More': 0
+				};
+			}
+
+			temp[county].Total += Number(row.estimated_total) || 0;
+			temp[county].Population += Number(row.total) || 0;
+			temp[county][row.race] = Number(row.estimated_total) || 0;
+
+			if ($mode === 'rates') {
+				temp[county][row.race] /= Number(row.total);
+			}
+		});
+
+		Object.keys(temp).forEach((key: any) => {
+			if ($mode === 'rates') {
+				temp[key].Total /= temp[key].Population;
+			}
+			temp[key].County = key;
+			delete temp[key].Other;
+			output.push(temp[key]);
+		});
+
+		return output;
+	},
+	{}
+);
+
+export const table_data = derived(
+	[table_data_unsorted, table_sort],
+	([$data, $sort]) => {
+		const output: any = $data;
+
+		return $data.sort((a: any, b: any) => b[$sort] - a[$sort]);
+	},
 	{}
 );

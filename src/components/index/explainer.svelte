@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Definition from '$components/definition.svelte';
+	import Definition from '$components/index/definition.svelte';
 </script>
 
 <div>
@@ -38,10 +38,8 @@
 
 <style lang="scss">
 	div {
+		@include label-large;
 		grid-area: explainer;
-		font-size: 18px;
-		line-height: 24px;
-		letter-spacing: 0.005em;
 
 		a {
 			color: $black;

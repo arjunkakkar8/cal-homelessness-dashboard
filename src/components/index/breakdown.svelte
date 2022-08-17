@@ -1,7 +1,7 @@
 <script lang="ts">
-	import ModuleContainer from '$components/module-container.svelte';
-	import Hover from '$components/hover.svelte';
-	import Bars from '$components/bars.svelte';
+	import ModuleContainer from './module-container.svelte';
+	import Hover from '$components/index/hover.svelte';
+	import Bars from '$components/index/bars.svelte';
 	import { breakdown_data } from '$stores/data';
 	import { color_list } from '$stores/colors';
 	import { format } from 'd3-format';

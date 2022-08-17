@@ -1,6 +1,6 @@
 <script>
-	import ModuleContainer from '$components/module-container.svelte';
-	import Hover from '$components/hover-static.svelte';
+	import ModuleContainer from '$components/index/module-container.svelte';
+	import Hover from '$components/index/hover-static.svelte';
 	import { snapshot_data, race, geography } from '$stores/data';
 	import { base } from '$app/paths';
 	import { format } from 'd3-format';
