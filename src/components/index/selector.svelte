@@ -68,8 +68,11 @@
 
 	select {
 		@include heading-small;
+		padding: 0;
+		color: $black;
 		background: none;
 		border: none;
+		outline: none;
 		appearance: none;
 		border-bottom: 1px dashed var(--theme-color);
 		cursor: pointer;
@@ -78,7 +81,6 @@
 
 	option {
 		font-size: 16px;
-		padding-left: -10px;
 	}
 
 	label {

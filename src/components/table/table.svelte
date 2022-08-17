@@ -48,8 +48,6 @@
 			$table_sort = value;
 		}
 	};
-
-	$: console.log($table_data);
 </script>
 
 <table>
@@ -106,16 +104,24 @@
 
 	.table-title {
 		th {
-			padding-bottom: 20px;
+			padding: 20px 0;
 		}
 	}
 
 	thead {
 		@include heading-xxxsmall;
 		color: $gray;
+		position: sticky;
+		top: $nav-height-mobile;
+		background-color: $white;
+		z-index: 5;
+
+		@include desktop {
+			top: $nav-height-desktop;
+		}
 
 		th {
-			padding: 0 12px;
+			padding: 0 12px 12px;
 		}
 	}
 
@@ -143,6 +149,10 @@
 
 			&:nth-child(even) {
 				background-color: $light-gray;
+			}
+
+			&:nth-child(odd) {
+				background-color: $white;
 			}
 
 			td {

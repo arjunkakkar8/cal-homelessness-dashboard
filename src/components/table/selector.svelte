@@ -29,6 +29,7 @@
 	button {
 		@include label-large;
 		padding: 0 6px;
+		color: $black;
 		background-color: unset;
 		border: 1px solid $overall;
 		border-radius: 12px;

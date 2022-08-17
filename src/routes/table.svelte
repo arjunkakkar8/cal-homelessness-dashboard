@@ -14,7 +14,6 @@
 		padding: 32px;
 		max-width: 100%;
 		display: grid;
-		gap: 20px 32px;
 		grid-template-columns: 1fr;
 		grid-auto-rows: auto;
 		grid-template-areas:
