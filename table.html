@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en" style="--theme-color: #00000000">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="/cal-homelessness-dashboard/favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="content-security-policy" content=""><title>Housing Insecurity</title>
+	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/__layout-e73635c8.css">
+	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/table-1d9b13e1.css">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/start-fc0b844d.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-4fcdfd8b.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-669c3d79.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/paths-b9644fda.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/preload-helper-4d4a3c13.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/__layout.svelte-0e780404.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/colors-b5bdc07f.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/table.svelte-f449a245.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/defaultLocale-9ccc85fa.js">
+	</head>
+
+	<body>
+		
+
+
+
+
+<nav class="svelte-iz4p0n"><div class="svelte-iz4p0n"><h1 class="svelte-iz4p0n"><a class="nav-title svelte-iz4p0n" href="/cal-homelessness-dashboard/">Housing Insecurity</a></h1>
+		<ul class="svelte-iz4p0n"><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/" class="svelte-iz4p0n">Dashboard</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/table" class="svelte-iz4p0n active">Table</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/methods" class="svelte-iz4p0n">Methods</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/about" class="svelte-iz4p0n">About</a>
+				</li></ul></div>
+</nav>
+<div class="module-panel svelte-15moxmw"><div class="svelte-r1ieuw">Use this table to sort through the estimated
+	<button class="svelte-r1ieuw active">counts</button>
+	or
+	<button class="svelte-r1ieuw">rates</button>
+	of housing insecurity in
+	<strong class="svelte-r1ieuw">California</strong>
+	counties.
+</div>
+	<table class="svelte-1xje6yi"><thead class="svelte-1xje6yi"><tr class="table-title svelte-1xje6yi"><th colspan="2" class="svelte-1xje6yi"></th>
+			<th colspan="7" class="svelte-1xje6yi">Housing Insecure Estimates</th></tr>
+		<tr class="svelte-1xje6yi"><th class="svelte-1xje6yi">County
+				</th><th class="svelte-1xje6yi"><button style="" class="svelte-1xje6yi">Population
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#2ea0d6" class="svelte-1xje6yi active">Total
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#00BAA5" class="svelte-1xje6yi">White
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#009E52" class="svelte-1xje6yi">Latino
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#F2CB2F" class="svelte-1xje6yi">Black
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#F59127" class="svelte-1xje6yi">AAPI
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#8CCA08" class="svelte-1xje6yi">AIAN
+						</button>
+				</th><th class="svelte-1xje6yi"><button style="--element-color:#E94A3F" class="svelte-1xje6yi">Two or More
+						</button>
+				</th></tr></thead>
+	<tbody class="svelte-1xje6yi"><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Los Angeles
+					</td><td class="svelte-1xje6yi">10M
+					</td><td class="svelte-1xje6yi">390k
+					</td><td class="svelte-1xje6yi">33k
+					</td><td class="svelte-1xje6yi">270k
+					</td><td class="svelte-1xje6yi">48k
+					</td><td class="svelte-1xje6yi">32k
+					</td><td class="svelte-1xje6yi">760
+					</td><td class="svelte-1xje6yi">4.5k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Bernardino
+					</td><td class="svelte-1xje6yi">2.1M
+					</td><td class="svelte-1xje6yi">190k
+					</td><td class="svelte-1xje6yi">27k
+					</td><td class="svelte-1xje6yi">120k
+					</td><td class="svelte-1xje6yi">21k
+					</td><td class="svelte-1xje6yi">12k
+					</td><td class="svelte-1xje6yi">1.0k
+					</td><td class="svelte-1xje6yi">2.9k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Orange
+					</td><td class="svelte-1xje6yi">3.2M
+					</td><td class="svelte-1xje6yi">170k
+					</td><td class="svelte-1xje6yi">18k
+					</td><td class="svelte-1xje6yi">140k
+					</td><td class="svelte-1xje6yi">3.3k
+					</td><td class="svelte-1xje6yi">15k
+					</td><td class="svelte-1xje6yi">390
+					</td><td class="svelte-1xje6yi">1.7k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Diego
+					</td><td class="svelte-1xje6yi">3.3M
+					</td><td class="svelte-1xje6yi">120k
+					</td><td class="svelte-1xje6yi">16k
+					</td><td class="svelte-1xje6yi">79k
+					</td><td class="svelte-1xje6yi">10k
+					</td><td class="svelte-1xje6yi">10k
+					</td><td class="svelte-1xje6yi">820
+					</td><td class="svelte-1xje6yi">3.7k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Riverside
+					</td><td class="svelte-1xje6yi">2.4M
+					</td><td class="svelte-1xje6yi">110k
+					</td><td class="svelte-1xje6yi">17k
+					</td><td class="svelte-1xje6yi">78k
+					</td><td class="svelte-1xje6yi">13k
+					</td><td class="svelte-1xje6yi">3.9k
+					</td><td class="svelte-1xje6yi">480
+					</td><td class="svelte-1xje6yi">2.3k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Sacramento
+					</td><td class="svelte-1xje6yi">1.5M
+					</td><td class="svelte-1xje6yi">65k
+					</td><td class="svelte-1xje6yi">19k
+					</td><td class="svelte-1xje6yi">21k
+					</td><td class="svelte-1xje6yi">15k
+					</td><td class="svelte-1xje6yi">5.5k
+					</td><td class="svelte-1xje6yi">600
+					</td><td class="svelte-1xje6yi">3.6k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Monterey
+					</td><td class="svelte-1xje6yi">430k
+					</td><td class="svelte-1xje6yi">52k
+					</td><td class="svelte-1xje6yi">3.0k
+					</td><td class="svelte-1xje6yi">46k
+					</td><td class="svelte-1xje6yi">450
+					</td><td class="svelte-1xje6yi">1.4k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">450
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Santa Barbara
+					</td><td class="svelte-1xje6yi">440k
+					</td><td class="svelte-1xje6yi">48k
+					</td><td class="svelte-1xje6yi">3.1k
+					</td><td class="svelte-1xje6yi">43k
+					</td><td class="svelte-1xje6yi">290
+					</td><td class="svelte-1xje6yi">840
+					</td><td class="svelte-1xje6yi">69
+					</td><td class="svelte-1xje6yi">190
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Butte
+					</td><td class="svelte-1xje6yi">230k
+					</td><td class="svelte-1xje6yi">42k
+					</td><td class="svelte-1xje6yi">33k
+					</td><td class="svelte-1xje6yi">5.0k
+					</td><td class="svelte-1xje6yi">580
+					</td><td class="svelte-1xje6yi">840
+					</td><td class="svelte-1xje6yi">650
+					</td><td class="svelte-1xje6yi">1.6k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Ventura
+					</td><td class="svelte-1xje6yi">850k
+					</td><td class="svelte-1xje6yi">37k
+					</td><td class="svelte-1xje6yi">5.7k
+					</td><td class="svelte-1xje6yi">29k
+					</td><td class="svelte-1xje6yi">500
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">360
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Kern
+					</td><td class="svelte-1xje6yi">890k
+					</td><td class="svelte-1xje6yi">32k
+					</td><td class="svelte-1xje6yi">7.8k
+					</td><td class="svelte-1xje6yi">19k
+					</td><td class="svelte-1xje6yi">4.2k
+					</td><td class="svelte-1xje6yi">910
+					</td><td class="svelte-1xje6yi">220
+					</td><td class="svelte-1xje6yi">500
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Joaquin
+					</td><td class="svelte-1xje6yi">740k
+					</td><td class="svelte-1xje6yi">30k
+					</td><td class="svelte-1xje6yi">5.1k
+					</td><td class="svelte-1xje6yi">16k
+					</td><td class="svelte-1xje6yi">5.1k
+					</td><td class="svelte-1xje6yi">2.7k
+					</td><td class="svelte-1xje6yi">290
+					</td><td class="svelte-1xje6yi">1.0k
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Fresno
+					</td><td class="svelte-1xje6yi">980k
+					</td><td class="svelte-1xje6yi">26k
+					</td><td class="svelte-1xje6yi">3.6k
+					</td><td class="svelte-1xje6yi">17k
+					</td><td class="svelte-1xje6yi">3.2k
+					</td><td class="svelte-1xje6yi">740
+					</td><td class="svelte-1xje6yi">260
+					</td><td class="svelte-1xje6yi">340
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Santa Clara
+					</td><td class="svelte-1xje6yi">1.9M
+					</td><td class="svelte-1xje6yi">25k
+					</td><td class="svelte-1xje6yi">1.9k
+					</td><td class="svelte-1xje6yi">17k
+					</td><td class="svelte-1xje6yi">950
+					</td><td class="svelte-1xje6yi">3.6k
+					</td><td class="svelte-1xje6yi">120
+					</td><td class="svelte-1xje6yi">470
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Alameda
+					</td><td class="svelte-1xje6yi">1.7M
+					</td><td class="svelte-1xje6yi">24k
+					</td><td class="svelte-1xje6yi">1.7k
+					</td><td class="svelte-1xje6yi">13k
+					</td><td class="svelte-1xje6yi">5.3k
+					</td><td class="svelte-1xje6yi">2.6k
+					</td><td class="svelte-1xje6yi">100
+					</td><td class="svelte-1xje6yi">840
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Santa Cruz
+					</td><td class="svelte-1xje6yi">270k
+					</td><td class="svelte-1xje6yi">21k
+					</td><td class="svelte-1xje6yi">2.4k
+					</td><td class="svelte-1xje6yi">19k
+					</td><td class="svelte-1xje6yi">81
+					</td><td class="svelte-1xje6yi">97
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">81
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Francisco
+					</td><td class="svelte-1xje6yi">870k
+					</td><td class="svelte-1xje6yi">19k
+					</td><td class="svelte-1xje6yi">970
+					</td><td class="svelte-1xje6yi">7.7k
+					</td><td class="svelte-1xje6yi">3.4k
+					</td><td class="svelte-1xje6yi">6.1k
+					</td><td class="svelte-1xje6yi">100
+					</td><td class="svelte-1xje6yi">370
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Contra Costa
+					</td><td class="svelte-1xje6yi">1.1M
+					</td><td class="svelte-1xje6yi">18k
+					</td><td class="svelte-1xje6yi">2.8k
+					</td><td class="svelte-1xje6yi">8.2k
+					</td><td class="svelte-1xje6yi">5.0k
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">100
+					</td><td class="svelte-1xje6yi">620
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Luis Obispo
+					</td><td class="svelte-1xje6yi">280k
+					</td><td class="svelte-1xje6yi">18k
+					</td><td class="svelte-1xje6yi">5.5k
+					</td><td class="svelte-1xje6yi">11k
+					</td><td class="svelte-1xje6yi">180
+					</td><td class="svelte-1xje6yi">350
+					</td><td class="svelte-1xje6yi">79
+					</td><td class="svelte-1xje6yi">330
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Tulare
+					</td><td class="svelte-1xje6yi">460k
+					</td><td class="svelte-1xje6yi">15k
+					</td><td class="svelte-1xje6yi">2.4k
+					</td><td class="svelte-1xje6yi">11k
+					</td><td class="svelte-1xje6yi">460
+					</td><td class="svelte-1xje6yi">460
+					</td><td class="svelte-1xje6yi">95
+					</td><td class="svelte-1xje6yi">150
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Mateo
+					</td><td class="svelte-1xje6yi">770k
+					</td><td class="svelte-1xje6yi">14k
+					</td><td class="svelte-1xje6yi">640
+					</td><td class="svelte-1xje6yi">9.7k
+					</td><td class="svelte-1xje6yi">680
+					</td><td class="svelte-1xje6yi">2.7k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">190
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Stanislaus
+					</td><td class="svelte-1xje6yi">540k
+					</td><td class="svelte-1xje6yi">11k
+					</td><td class="svelte-1xje6yi">3.0k
+					</td><td class="svelte-1xje6yi">6.0k
+					</td><td class="svelte-1xje6yi">710
+					</td><td class="svelte-1xje6yi">780
+					</td><td class="svelte-1xje6yi">58
+					</td><td class="svelte-1xje6yi">230
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Placer
+					</td><td class="svelte-1xje6yi">390k
+					</td><td class="svelte-1xje6yi">9.7k
+					</td><td class="svelte-1xje6yi">5.0k
+					</td><td class="svelte-1xje6yi">2.9k
+					</td><td class="svelte-1xje6yi">530
+					</td><td class="svelte-1xje6yi">810
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">480
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Merced
+					</td><td class="svelte-1xje6yi">270k
+					</td><td class="svelte-1xje6yi">9.1k
+					</td><td class="svelte-1xje6yi">1.7k
+					</td><td class="svelte-1xje6yi">6.3k
+					</td><td class="svelte-1xje6yi">530
+					</td><td class="svelte-1xje6yi">570
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Imperial
+					</td><td class="svelte-1xje6yi">180k
+					</td><td class="svelte-1xje6yi">9.0k
+					</td><td class="svelte-1xje6yi">480
+					</td><td class="svelte-1xje6yi">8.1k
+					</td><td class="svelte-1xje6yi">140
+					</td><td class="svelte-1xje6yi">97
+					</td><td class="svelte-1xje6yi">210
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Humboldt
+					</td><td class="svelte-1xje6yi">140k
+					</td><td class="svelte-1xje6yi">8.4k
+					</td><td class="svelte-1xje6yi">5.1k
+					</td><td class="svelte-1xje6yi">1.6k
+					</td><td class="svelte-1xje6yi">150
+					</td><td class="svelte-1xje6yi">230
+					</td><td class="svelte-1xje6yi">890
+					</td><td class="svelte-1xje6yi">500
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Solano
+					</td><td class="svelte-1xje6yi">440k
+					</td><td class="svelte-1xje6yi">8.0k
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">3.5k
+					</td><td class="svelte-1xje6yi">2.1k
+					</td><td class="svelte-1xje6yi">550
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">370
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Shasta
+					</td><td class="svelte-1xje6yi">180k
+					</td><td class="svelte-1xje6yi">7.6k
+					</td><td class="svelte-1xje6yi">5.6k
+					</td><td class="svelte-1xje6yi">920
+					</td><td class="svelte-1xje6yi">270
+					</td><td class="svelte-1xje6yi">220
+					</td><td class="svelte-1xje6yi">260
+					</td><td class="svelte-1xje6yi">290
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Marin
+					</td><td class="svelte-1xje6yi">260k
+					</td><td class="svelte-1xje6yi">7.1k
+					</td><td class="svelte-1xje6yi">370
+					</td><td class="svelte-1xje6yi">6.5k
+					</td><td class="svelte-1xje6yi">99
+					</td><td class="svelte-1xje6yi">110
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Madera
+					</td><td class="svelte-1xje6yi">160k
+					</td><td class="svelte-1xje6yi">7.0k
+					</td><td class="svelte-1xje6yi">1.3k
+					</td><td class="svelte-1xje6yi">5.2k
+					</td><td class="svelte-1xje6yi">160
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">120
+					</td><td class="svelte-1xje6yi">89
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Mendocino
+					</td><td class="svelte-1xje6yi">87k
+					</td><td class="svelte-1xje6yi">6.1k
+					</td><td class="svelte-1xje6yi">2.5k
+					</td><td class="svelte-1xje6yi">2.6k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">880
+					</td><td class="svelte-1xje6yi">180
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">El Dorado
+					</td><td class="svelte-1xje6yi">190k
+					</td><td class="svelte-1xje6yi">5.2k
+					</td><td class="svelte-1xje6yi">3.5k
+					</td><td class="svelte-1xje6yi">1.4k
+					</td><td class="svelte-1xje6yi">110
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">90
+					</td><td class="svelte-1xje6yi">170
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Yolo
+					</td><td class="svelte-1xje6yi">220k
+					</td><td class="svelte-1xje6yi">5.2k
+					</td><td class="svelte-1xje6yi">1.6k
+					</td><td class="svelte-1xje6yi">2.8k
+					</td><td class="svelte-1xje6yi">280
+					</td><td class="svelte-1xje6yi">280
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">140
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Kings
+					</td><td class="svelte-1xje6yi">150k
+					</td><td class="svelte-1xje6yi">4.8k
+					</td><td class="svelte-1xje6yi">850
+					</td><td class="svelte-1xje6yi">3.5k
+					</td><td class="svelte-1xje6yi">390
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">85
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Lake
+					</td><td class="svelte-1xje6yi">63k
+					</td><td class="svelte-1xje6yi">4.7k
+					</td><td class="svelte-1xje6yi">2.6k
+					</td><td class="svelte-1xje6yi">1.6k
+					</td><td class="svelte-1xje6yi">87
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">220
+					</td><td class="svelte-1xje6yi">170
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Sonoma
+					</td><td class="svelte-1xje6yi">500k
+					</td><td class="svelte-1xje6yi">4.6k
+					</td><td class="svelte-1xje6yi">1.7k
+					</td><td class="svelte-1xje6yi">2.4k
+					</td><td class="svelte-1xje6yi">120
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">130
+					</td><td class="svelte-1xje6yi">200
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Tehama
+					</td><td class="svelte-1xje6yi">62k
+					</td><td class="svelte-1xje6yi">4.5k
+					</td><td class="svelte-1xje6yi">3.0k
+					</td><td class="svelte-1xje6yi">1.4k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">130
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Nevada
+					</td><td class="svelte-1xje6yi">98k
+					</td><td class="svelte-1xje6yi">3.2k
+					</td><td class="svelte-1xje6yi">2.3k
+					</td><td class="svelte-1xje6yi">780
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">150
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Sutter
+					</td><td class="svelte-1xje6yi">95k
+					</td><td class="svelte-1xje6yi">2.9k
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">950
+					</td><td class="svelte-1xje6yi">160
+					</td><td class="svelte-1xje6yi">180
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">150
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Yuba
+					</td><td class="svelte-1xje6yi">76k
+					</td><td class="svelte-1xje6yi">2.5k
+					</td><td class="svelte-1xje6yi">1.4k
+					</td><td class="svelte-1xje6yi">620
+					</td><td class="svelte-1xje6yi">250
+					</td><td class="svelte-1xje6yi">110
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">120
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Napa
+					</td><td class="svelte-1xje6yi">140k
+					</td><td class="svelte-1xje6yi">2.2k
+					</td><td class="svelte-1xje6yi">620
+					</td><td class="svelte-1xje6yi">1.6k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">48
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Tuolumne
+					</td><td class="svelte-1xje6yi">51k
+					</td><td class="svelte-1xje6yi">2.2k
+					</td><td class="svelte-1xje6yi">1.7k
+					</td><td class="svelte-1xje6yi">430
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">48
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Siskiyou
+					</td><td class="svelte-1xje6yi">42k
+					</td><td class="svelte-1xje6yi">2.0k
+					</td><td class="svelte-1xje6yi">1.2k
+					</td><td class="svelte-1xje6yi">330
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">230
+					</td><td class="svelte-1xje6yi">170
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">San Benito
+					</td><td class="svelte-1xje6yi">60k
+					</td><td class="svelte-1xje6yi">1.8k
+					</td><td class="svelte-1xje6yi">260
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Glenn
+					</td><td class="svelte-1xje6yi">26k
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">680
+					</td><td class="svelte-1xje6yi">860
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Calaveras
+					</td><td class="svelte-1xje6yi">44k
+					</td><td class="svelte-1xje6yi">1.5k
+					</td><td class="svelte-1xje6yi">1.1k
+					</td><td class="svelte-1xje6yi">380
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">73
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Colusa
+					</td><td class="svelte-1xje6yi">20k
+					</td><td class="svelte-1xje6yi">1.3k
+					</td><td class="svelte-1xje6yi">290
+					</td><td class="svelte-1xje6yi">1.0k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Del Norte
+					</td><td class="svelte-1xje6yi">26k
+					</td><td class="svelte-1xje6yi">1.2k
+					</td><td class="svelte-1xje6yi">770
+					</td><td class="svelte-1xje6yi">170
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">220
+					</td><td class="svelte-1xje6yi">61
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Amador
+					</td><td class="svelte-1xje6yi">37k
+					</td><td class="svelte-1xje6yi">1.0k
+					</td><td class="svelte-1xje6yi">770
+					</td><td class="svelte-1xje6yi">170
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">73
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Trinity
+					</td><td class="svelte-1xje6yi">10k
+					</td><td class="svelte-1xje6yi">910
+					</td><td class="svelte-1xje6yi">910
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Plumas
+					</td><td class="svelte-1xje6yi">17k
+					</td><td class="svelte-1xje6yi">830
+					</td><td class="svelte-1xje6yi">720
+					</td><td class="svelte-1xje6yi">110
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Lassen
+					</td><td class="svelte-1xje6yi">29k
+					</td><td class="svelte-1xje6yi">630
+					</td><td class="svelte-1xje6yi">520
+					</td><td class="svelte-1xje6yi">110
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Mariposa
+					</td><td class="svelte-1xje6yi">16k
+					</td><td class="svelte-1xje6yi">580
+					</td><td class="svelte-1xje6yi">460
+					</td><td class="svelte-1xje6yi">120
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Inyo
+					</td><td class="svelte-1xje6yi">17k
+					</td><td class="svelte-1xje6yi">460
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">460
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Mono
+					</td><td class="svelte-1xje6yi">13k
+					</td><td class="svelte-1xje6yi">230
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">230
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Modoc
+					</td><td class="svelte-1xje6yi">8.2k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr><tr class="svelte-1xje6yi"><td class="svelte-1xje6yi">Sierra
+					</td><td class="svelte-1xje6yi">2.7k
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td><td class="svelte-1xje6yi">0.0
+					</td>
+			</tr></tbody>
+</table>
+</div>
+
+
+		<script type="module" data-sveltekit-hydrate="12o7v39">
+		import { start } from "/cal-homelessness-dashboard/_app/immutable/start-fc0b844d.js";
+		start({
+			target: document.querySelector('[data-sveltekit-hydrate="12o7v39"]').parentNode,
+			paths: {"base":"/cal-homelessness-dashboard","assets":"/cal-homelessness-dashboard"},
+			session: {},
+			route: true,
+			spa: false,
+			trailing_slash: "never",
+			hydrate: {
+				status: 200,
+				error: null,
+				nodes: [0, 5],
+				params: {},
+				routeId: "table"
+			}
+		});
+	</script>
+	</body>
+</html>

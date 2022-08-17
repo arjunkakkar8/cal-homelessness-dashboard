@@ -6,14 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content=""><title>Housing Insecurity</title>
 	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/__layout-e73635c8.css">
-	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/index-26caaa37.css">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/start-3d789e9a.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-cf42b0d7.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/paths-897dc84e.js">
+	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/index-e1ea1397.css">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/start-fc0b844d.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-4fcdfd8b.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-669c3d79.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/paths-b9644fda.js">
 	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/preload-helper-4d4a3c13.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/__layout.svelte-741c5778.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/colors-fac0e88a.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/index.svelte-28c7e11b.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/__layout.svelte-0e780404.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/colors-b5bdc07f.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/index.svelte-52dda27c.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/defaultLocale-9ccc85fa.js">
 	</head>
 
 	<body>
@@ -24,20 +26,21 @@
 
 <nav class="svelte-iz4p0n"><div class="svelte-iz4p0n"><h1 class="svelte-iz4p0n"><a class="nav-title svelte-iz4p0n" href="/cal-homelessness-dashboard/">Housing Insecurity</a></h1>
 		<ul class="svelte-iz4p0n"><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/" class="svelte-iz4p0n active">Dashboard</a>
-				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/about" class="svelte-iz4p0n">About</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/table" class="svelte-iz4p0n">Table</a>
 				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/methods" class="svelte-iz4p0n">Methods</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/about" class="svelte-iz4p0n">About</a>
 				</li></ul></div>
 </nav>
-<div class="module-panel svelte-1tptjgo"><div class="svelte-dxmb18">A metric that aims to estimate
+<div class="module-panel svelte-8bphyy"><div class="svelte-1j7u75n">A metric that aims to estimate
 	<span class="svelte-1b02p99">homeless
-	<div class="definition-hover svelte-1b02p99"><p class="svelte-dxmb18">Federal, state, and local agencies use different definitions of homelessness, which affects
+	<div class="definition-hover svelte-1b02p99"><p class="svelte-1j7u75n">Federal, state, and local agencies use different definitions of homelessness, which affects
 			eligibility and services available to individuals and families. The United States Department
 			of Housing and Urban Development (HUD) definition of homeless is most consequential, given
 			that it defines who is eligible for federally-funded homeless assistance programs.
 		</p>
-		<p class="svelte-dxmb18">The HUD definition includes four categories of homelessness: literally homeless, imminent risk
+		<p class="svelte-1j7u75n">The HUD definition includes four categories of homelessness: literally homeless, imminent risk
 			of homelessness, homeless under other federal statutes, or fleeing/attempting to flee domestic
-			violence. You can find more information about HUD’s definition of homelessness <a href="https://www.hudexchange.info/news/huds-definition-of-homelessness-resources-and-guidance/" target="_blank" rel="noreferrer" class="svelte-dxmb18">here</a>.
+			violence. You can find more information about HUD’s definition of homelessness <a href="https://www.hudexchange.info/news/huds-definition-of-homelessness-resources-and-guidance/" target="_blank" rel="noreferrer" class="svelte-1j7u75n">here</a>.
 		</p></div>
 </span>
 	and
@@ -49,9 +52,9 @@
 	</div>
 </span>
 	populations in
-	<strong class="svelte-dxmb18">California</strong>
+	<strong class="svelte-1j7u75n">California</strong>
 	using
-	<a href="https://www.cde.ca.gov/ds/sg/homelessyouth.asp" target="_blank" rel="noreferrer" class="svelte-dxmb18">student homelessness data</a>.
+	<a href="https://www.cde.ca.gov/ds/sg/homelessyouth.asp" target="_blank" rel="noreferrer" class="svelte-1j7u75n">student homelessness data</a>.
 </div>
 	<div class="svelte-13nsl9l"><span class="svelte-13nsl9l"><label for="geo-select" class="svelte-13nsl9l">Geography</label>
 		<span class="placeholder svelte-13nsl9l">Statewide data</span>
@@ -198,7 +201,14 @@
 					<h4 class="svelte-1x971wm">Total Population</h4>
 <div class="bar-container svelte-1x971wm" style="height:15%; min-height:20px"><div class="bar svelte-1x971wm" style="background-color:#00BAA5; width:37.1792562154026%"></div><div class="bar svelte-1x971wm" style="background-color:#009E52; width:39.018135274464%"></div><div class="bar svelte-1x971wm" style="background-color:#F2CB2F; width:5.521797104774049%"></div><div class="bar svelte-1x971wm" style="background-color:#F59127; width:14.6415656426921%"></div><div class="bar svelte-1x971wm" style="background-color:#8CCA08; width:0.358499142782528%"></div><div class="bar svelte-1x971wm" style="background-color:#E94A3F; width:3.02588387179481%"></div><div class="bar svelte-1x971wm" style="background-color:#E7558B; width:0.254862748089866%"></div>
 </div></div>
-				<div class="legend-container svelte-1bmg6oy"><h4 class="legend-item svelte-1bmg6oy" style="background-color:#00BAA5;">White</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#009E52;">Latino</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#F2CB2F;">Black</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#F59127;">AAPI</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#8CCA08;">AIAN</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#E94A3F;">Two or More</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#E7558B;">Other</h4></div></div></span>
+				<div class="legend-container svelte-1bmg6oy"><h4 class="legend-item svelte-1bmg6oy" style="background-color:#00BAA5;">White
+							</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#009E52;">Latino
+							</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#F2CB2F;">Black
+							</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#F59127;">AAPI
+							</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#8CCA08;">AIAN
+							</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#E94A3F;">Two or More
+							</h4><h4 class="legend-item svelte-1bmg6oy" style="background-color:#E7558B;">Other
+							</h4></div></div></span>
 	<div class="hover svelte-1bg1880" style="top:0px;left:0px;"><span slot="hover" class="svelte-1bmg6oy"><h3 style="border-bottom-color:;" class="svelte-1bmg6oy"></h3>
 			<div class="hover-wrapper svelte-1bmg6oy"><div class="svelte-1bmg6oy"><p class="svelte-1bmg6oy"></p>
 					<h4 class="svelte-1bmg6oy">of Housing Insecure</h4></div>
@@ -211,10 +221,10 @@
 </div>
 
 
-		<script type="module" data-sveltekit-hydrate="1j40vi5">
-		import { start } from "/cal-homelessness-dashboard/_app/immutable/start-3d789e9a.js";
+		<script type="module" data-sveltekit-hydrate="1epeygm">
+		import { start } from "/cal-homelessness-dashboard/_app/immutable/start-fc0b844d.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="1j40vi5"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="1epeygm"]').parentNode,
 			paths: {"base":"/cal-homelessness-dashboard","assets":"/cal-homelessness-dashboard"},
 			session: {},
 			route: true,
