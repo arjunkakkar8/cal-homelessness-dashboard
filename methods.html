@@ -6,14 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta http-equiv="content-security-policy" content=""><title>Housing Insecurity</title>
 	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/__layout-e73635c8.css">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/start-4f7fc498.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-4fcdfd8b.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-669c3d79.js">
+	<link rel="stylesheet" href="/cal-homelessness-dashboard/_app/immutable/assets/methods-000dac14.css">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/start-234f64f2.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-8e726f28.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-b48d4807.js">
 	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/paths-b9644fda.js">
 	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/preload-helper-4d4a3c13.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/__layout.svelte-d8ed65ff.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/colors-04398fcd.js">
-	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/methods.svelte-76b35bdd.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/__layout.svelte-2121594e.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/index-d3aea419.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/chunks/colors-2829636b.js">
+	<link rel="modulepreload" href="/cal-homelessness-dashboard/_app/immutable/pages/methods.svelte-9c0262dd.js">
 	</head>
 
 	<body>
@@ -23,19 +25,109 @@
 
 
 <nav class="svelte-iz4p0n"><div class="svelte-iz4p0n"><h1 class="svelte-iz4p0n"><a class="nav-title svelte-iz4p0n" href="/cal-homelessness-dashboard/">Housing Insecurity</a></h1>
-		<ul class="svelte-iz4p0n"><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/" class="svelte-iz4p0n">Dashboard</a>
-				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/table" class="svelte-iz4p0n">Table</a>
-				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/methods" class="svelte-iz4p0n active">Methods</a>
-				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/about" class="svelte-iz4p0n">About</a>
+		<ul class="svelte-iz4p0n"><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/" data-sveltekit-noscroll class="svelte-iz4p0n">Dashboard</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/table" data-sveltekit-noscroll class="svelte-iz4p0n">Table</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/methods" data-sveltekit-noscroll class="svelte-iz4p0n active">Methods</a>
+				</li><li class="svelte-iz4p0n"><a href="/cal-homelessness-dashboard/about" data-sveltekit-noscroll class="svelte-iz4p0n">About</a>
 				</li></ul></div>
 </nav>
+<div><div class="methods-container svelte-jmzjde"><section id="insecurity" class="svelte-jmzjde"><h2 class="svelte-jmzjde">Housing Insecurity Metric</h2>
+		<p class="svelte-jmzjde">We calculate the housing insecurity metric using county-level student homelessness counts
+			collected and provided by the <a href="https://www.cde.ca.gov/ds/ad/dataquest.asp" target="_blank" class="svelte-jmzjde">California Department of Education</a>. These counts are disaggregated by race and ethnicity and serve as a foundation for the
+			scale and racial and ethnic proportions of our housing insecurity counts. We apply a
+			multiplier to our county-level counts, which takes the total for student homelessness for each
+			racial group and scales them up to estimate the total housing insecure population.
+		</p>
+		<h3 class="svelte-jmzjde">Understanding student data</h3>
+		<p class="svelte-jmzjde">We access California&#39;s chronic absenteeism records for the 2019-20 school year through the
+			<a href="https://www.cde.ca.gov/ds/ad/dataquest.asp" target="_blank" class="svelte-jmzjde">DataQuest Portal</a>.
+			This data is available from K-12 for all public schools in California and disaggregates
+			homeless status and race and ethnicity counts for all students and those categorized as
+			<a href="https://www.cde.ca.gov/ta/ac/cm/chronabscal.asp" target="_blank" class="svelte-jmzjde">“chronically absent”</a>. We use county-level counts since data at more granular geographies (school districts or
+			schools) often has redacted data due to privacy concerns.
+		</p>
+		<h3 class="svelte-jmzjde">Understanding our multiplier</h3>
+		<p class="svelte-jmzjde">We calculate our multipliers using the 5-year 2019 American Community Survey (ACS). Using the
+			<a href="https://nlihc.org/sites/default/files/Quantifying-Doubled-Up-Homelessness.pdf" target="_blank" class="svelte-jmzjde">methodology from Richard et al.</a>
+			We identify and classify individuals from the 5-year 2019 ACS as
+			<a href="#doubled-up" class="svelte-jmzjde">“doubled up”</a>. We disaggregate our doubled up population by
+			race/ethnicity and age to identify the proportion of student-aged (5-18 years) doubled up
+			individuals within each racial/ethnic group. These proportions serve as unique multipliers for
+			each racial/ethnic group, which we apply to our homeless student counts to estimate all
+			housing insecurity counts.
+		</p>
+		<p class="note svelte-jmzjde">Note: The ACS doubled up population does not include sheltered and unsheltered homeless
+			individuals. In California, homeless students are more likely to be doubled up than sheltered
+			or unsheltered, so they are likely overrepresented in the multipliers used to calculate
+			housing insecurity. This means that our housing insecurity courts likely underestimate the
+			housing insecure and homeless population in California.
+		</p>
+		<p class="note svelte-jmzjde">Additionally, we calculate each of our racial group multipliers using state-wide proportions.
+			Therefore the estimates by county are only valid insofar as the age distribution of homeless
+			individuals of different races for each county resembles the age distribution of homeless
+			individuals by race for the entire state.
+		</p></section>
+	<section id="doubled-up" class="svelte-jmzjde"><h2 class="svelte-jmzjde">Doubled Up Estimate</h2>
+		<p class="svelte-jmzjde">We calculate our doubled-up counts with the 5-year 2019 American Community Survey (ACS) using
+			the methodology from Richard et al. Members of a household in the ACS are considered doubled
+			up if they are poor or near poor (at or below 125% of a geographically adjusted poverty
+			threshold) and meet any of the following criteria:
+		</p>
+		<ul class="svelte-jmzjde"><li class="svelte-jmzjde"><strong class="svelte-jmzjde">Adult children and children-in-law</strong>: Who have children of their own, who are
+				married, or who are single but living in an overcrowded situation (i.e., more than two
+				people per bedroom)
+			</li>
+			<li class="svelte-jmzjde"><strong class="svelte-jmzjde">Grandchildren</strong>: Minor and adult grandchildren, excluding:
+				<ul class="svelte-jmzjde"><li class="svelte-jmzjde">Minor grandchildren of the household head when the household head claims responsibility
+						for their needs (asked directly by the American Community Survey).
+					</li>
+					<li class="svelte-jmzjde">Minor grandchildren whose single parent lives at home and is under 18 (i.e., children of
+						teenage dependents)
+					</li></ul></li>
+			<li class="svelte-jmzjde"><strong class="svelte-jmzjde">Other relatives</strong>: Parents/parents-in-law, siblings/siblings-in-law, cousins,
+				aunts/uncles, and other unspecified relatives of the household head who are under the age of
+				65, excluding:
+				<ul class="svelte-jmzjde"><li class="svelte-jmzjde">Minor siblings of the household head when the minor’s parent is not present (so that the
+						household head may assume responsibility for minor siblings).
+					</li>
+					<li class="svelte-jmzjde">Single and childless adult siblings of the household head, when the household head is
+						also single with no children— resembling a roommate situation.
+					</li>
+					<li class="svelte-jmzjde">Parents/parents-in-law, siblings/siblings-in-law, cousins, aunts/uncles, and other
+						unspecified relatives of the household head who are over age 65 and in an overcrowded
+						situation
+					</li></ul></li>
+			<li class="svelte-jmzjde"><strong class="svelte-jmzjde">Nonrelatives</strong>: Individuals unrelated to the householder, including friends,
+				visitors, and other nonrelatives, excluding:
+				<ul class="svelte-jmzjde"><li class="svelte-jmzjde">An unmarried partner or their children, roommates/housemates, and roomers/boarders
+					</li></ul></li></ul>
+		<p class="svelte-jmzjde">We summarize doubled up counts for the whole state and at the county level, when available by
+			the 2019 5-year ACS.
+		</p></section>
+	<section id="pit" class="svelte-jmzjde"><h2 class="svelte-jmzjde">Point-in-Time Counts</h2>
+		<p class="svelte-jmzjde">We publicly sourced Point-in-Time (PIT) counts from the <a href="https://www.hudexchange.info/" target="_blank" class="svelte-jmzjde">HUD exchange website</a> and local California Continuum of care (CoC) partners, responsible for coordinating regional
+			PIT surveys and submitting tabulated counts to HUD.
+		</p>
+		<p class="svelte-jmzjde">HUD exchange archives PIT counts provided by every CoC as of 2019. CoCs are responsible for
+			providing PIT survey tabulations to HUD every year but are only required to survey their total
+			(sheltered and unsheltered) homeless population on even-numbered years. CoCs in large metro
+			areas count their sheltered and unsheltered homeless populations yearly, but many in smaller
+			and more rural areas do not. 2022 is an even-numbered year, meaning that all CoCs were
+			obligated to collect their total sheltered and unsheltered counts in this year’s PIT survey.
+			However, due to the pandemic, many CoCs were granted exemptions for either not counting
+			unsheltered or delaying, or in some cases canceling, their 2022 PIT counts.
+		</p>
+		<p class="svelte-jmzjde">For those that did not provide 2022 total PIT counts, we deferred to their 2020 PIT survey
+			results, which provided their most up-to-date sheltered and unsheltered counts provided by the
+			<a href="https://www.hudexchange.info/programs/coc/coc-homeless-populations-and-subpopulations-reports/?filter_Year=2020&filter_Scope=CoC&filter_State=CA&filter_CoC=&program=CoC&group=PopSub" target="_blank" class="svelte-jmzjde">CoC Homeless Populations and Subpopulations Reports</a>.
+		</p></section>
+</div></div>
 
 
-
-		<script type="module" data-sveltekit-hydrate="b6gpan">
-		import { start } from "/cal-homelessness-dashboard/_app/immutable/start-4f7fc498.js";
+		<script type="module" data-sveltekit-hydrate="h67feg">
+		import { start } from "/cal-homelessness-dashboard/_app/immutable/start-234f64f2.js";
 		start({
-			target: document.querySelector('[data-sveltekit-hydrate="b6gpan"]').parentNode,
+			target: document.querySelector('[data-sveltekit-hydrate="h67feg"]').parentNode,
 			paths: {"base":"/cal-homelessness-dashboard","assets":"/cal-homelessness-dashboard"},
 			session: {},
 			route: true,
