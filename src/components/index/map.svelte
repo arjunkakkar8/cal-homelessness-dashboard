@@ -42,9 +42,9 @@
 		if (countyData) {
 			hoverActive = true;
 			countyName = feature.feature?.properties?.NAME;
-			countyEstimate = format('.2s')(countyData.estimate);
+			countyEstimate = format('.3s')(countyData.estimate);
 			countyRate = format('.1%')(countyData.rate);
-			countyTotal = format('.2s')(countyData.total);
+			countyTotal = format('.3s')(countyData.total);
 
 			feature.setStyle({
 				weight: 2,

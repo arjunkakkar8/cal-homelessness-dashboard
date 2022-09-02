@@ -17,7 +17,7 @@
 		<div class="snapshot-container">
 			<div>
 				<h4>housing insecure estimate</h4>
-				<div class="large">{format('.2s')($snapshot_data.estimate)}</div>
+				<div class="large">{format('.3s')($snapshot_data.estimate)}</div>
 			</div>
 			<div>
 				<h4>rate of insecurity</h4>
@@ -25,7 +25,7 @@
 			</div>
 			<div>
 				<h4 class="narrow">total population</h4>
-				<div class="small">{format('.2s')($snapshot_data.total)}</div>
+				<div class="small">{format('.3s')($snapshot_data.total)}</div>
 			</div>
 			<Hover>
 				<h3>Housing Insecurity</h3>
@@ -36,7 +36,7 @@
 						: `${$geography} county`}, there were
 					<strong>{format(',')($snapshot_data.students)}</strong>
 					{$race === 'all races' ? 'total' : $race} homeless students, and we used a multiplier of
-					<strong>{format('.2s')($snapshot_data.estimate / $snapshot_data.students)}</strong> to estimate
+					<strong>{format('.3s')($snapshot_data.estimate / $snapshot_data.students)}</strong> to estimate
 					the total housing insecure counts.
 				</p>
 				<p>
@@ -64,7 +64,7 @@
 			<div>
 				<h4>doubled up estimate</h4>
 				<div class="medium">
-					{doubledupInactive ? 'NA' : format('.2s')($snapshot_data.doubledup)}
+					{doubledupInactive ? 'NA' : format('.3s')($snapshot_data.doubledup)}
 				</div>
 			</div>
 		</div>
@@ -90,7 +90,7 @@
 			</Hover>
 			<div>
 				<h4>Point in time count</h4>
-				<div class="medium">{pointintimeInactive ? 'NA' : format('.2s')($snapshot_data.pit)}</div>
+				<div class="medium">{pointintimeInactive ? 'NA' : format('.3s')($snapshot_data.pit)}</div>
 			</div>
 		</div>
 	</div>

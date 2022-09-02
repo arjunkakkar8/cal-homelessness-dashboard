@@ -3,7 +3,6 @@
 	import { color_list } from '$stores/colors';
 	import { format } from 'd3-format';
 	import { flip } from 'svelte/animate';
-	import type { DomEvent } from 'leaflet';
 
 	const headers = [
 		'County',
@@ -28,14 +27,16 @@
 	};
 
 	const formatValue = (column: typeof headers[number], value: number) => {
+		if ([NaN, 0].includes(value)) return 'NA';
+
 		switch (column) {
 			case 'County':
 				return value;
 			case 'Population':
-				return format('.2s')(value);
+				return format('.3s')(value);
 			default:
 				if ($table_mode === 'counts') {
-					return format('.2s')(value);
+					return format('.3s')(value);
 				} else {
 					return format('.1%')(value);
 				}
@@ -79,7 +80,7 @@
 		{#each $table_data as row (row.County)}
 			<tr animate:flip={{ duration: (d) => 20 * Math.sqrt(d) }}>
 				{#each Object.keys(row) as _, i}
-					<td>
+					<td class:inactive={[NaN, 0].includes(row[headers[i]])}>
 						{formatValue(headers[i], row[headers[i]])}
 					</td>
 				{/each}
@@ -158,6 +159,10 @@
 
 			td {
 				padding: 16px 12px;
+
+				&.inactive {
+					color: $gray;
+				}
 			}
 
 			td:not(:first-of-type) {
