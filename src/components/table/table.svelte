@@ -3,6 +3,7 @@
 	import { color_list } from '$stores/colors';
 	import { format } from 'd3-format';
 	import { flip } from 'svelte/animate';
+	import type { DomEvent } from 'leaflet';
 
 	const headers = [
 		'County',
@@ -16,17 +17,17 @@
 		'Two or More'
 	];
 
-	const getColor = (key) => {
+	const getColor = (key: typeof headers[number]) => {
 		if (key === 'Total') {
 			return `--element-color:${$color_list['all races'][1]}`;
-		} else if ($color_list[key]) {
-			return `--element-color:${$color_list[key][1]}`;
+		} else if ($color_list[key as keyof typeof $color_list]) {
+			return `--element-color:${$color_list[key as keyof typeof $color_list][1]}`;
 		} else {
 			return '';
 		}
 	};
 
-	const formatValue = (column, value) => {
+	const formatValue = (column: typeof headers[number], value: number) => {
 		switch (column) {
 			case 'County':
 				return value;
@@ -41,11 +42,11 @@
 		}
 	};
 
-	const setSort = (e) => {
-		const value = e.target.textContent;
-		console.log(e);
-		if ($table_sort !== value) {
-			$table_sort = value;
+	const setSort = (e: MouseEvent) => {
+		const el = e.target as HTMLButtonElement;
+
+		if (el?.textContent && $table_sort !== el.textContent) {
+			$table_sort = el.textContent;
 		}
 	};
 </script>
@@ -77,7 +78,7 @@
 	<tbody>
 		{#each $table_data as row (row.County)}
 			<tr animate:flip={{ duration: (d) => 20 * Math.sqrt(d) }}>
-				{#each Object.keys(row) as key, i}
+				{#each Object.keys(row) as _, i}
 					<td>
 						{formatValue(headers[i], row[headers[i]])}
 					</td>
@@ -142,7 +143,7 @@
 	}
 
 	tbody {
-		@include heading-xsmall;
+		@include paragraph-large;
 
 		tr {
 			transition: background-color 0.2s ease-in-out;

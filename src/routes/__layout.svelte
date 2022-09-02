@@ -1,15 +1,22 @@
+<script context="module">
+	export const load = async ({ url }) => ({
+		props: {
+			refresh: url
+		}
+	});
+</script>
+
 <script lang="ts">
 	import Header from '$components/header.svelte';
+	import PageTransition from '$components/pageTransition.svelte';
 	import { theme_color } from '$stores/colors';
 	import { onMount } from 'svelte';
 
-	let mounted = false;
+	export let refresh;
 
 	onMount(() => {
-		mounted = true;
+		document.documentElement.style.setProperty('--theme-color', $theme_color);
 	});
-
-	$: if (mounted) document.documentElement.style.setProperty('--theme-color', $theme_color);
 </script>
 
 <svelte:head>
@@ -17,7 +24,9 @@
 </svelte:head>
 
 <Header />
-<slot />
+<PageTransition {refresh}>
+	<slot />
+</PageTransition>
 
 <style lang="scss">
 	@function asset($file) {

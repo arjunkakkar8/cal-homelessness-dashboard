@@ -32,6 +32,7 @@
 						class:active={`${base}/${item.path}`.replace(/\/+$/, '') ===
 							$page.url.pathname.replace(/\/+$/, '')}
 						href="{base}/{item.path}"
+						data-sveltekit-noscroll
 					>
 						{item.name}
 					</a>

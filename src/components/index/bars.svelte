@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { color_list } from '$stores/colors';
 	export let data;
 	export let heading;
