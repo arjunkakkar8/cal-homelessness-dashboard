@@ -7,16 +7,21 @@
 </script>
 
 <script lang="ts">
+	export let refresh;
+
 	import Header from '$components/header.svelte';
 	import PageTransition from '$components/pageTransition.svelte';
 	import { theme_color } from '$stores/colors';
 	import { onMount } from 'svelte';
 
-	export let refresh;
+	let mounted = false;
 
 	onMount(() => {
+		mounted = true;
 		document.documentElement.style.setProperty('--theme-color', $theme_color);
 	});
+
+	$: if (mounted) document.documentElement.style.setProperty('--theme-color', $theme_color);
 </script>
 
 <svelte:head>
