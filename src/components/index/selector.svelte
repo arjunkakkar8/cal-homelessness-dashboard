@@ -48,7 +48,7 @@
 			}
 
 			&:nth-of-type(2) {
-				margin-bottom: 2.5px;
+				margin-bottom: 1px;
 			}
 		}
 	}

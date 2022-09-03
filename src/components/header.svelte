@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+	let nav: HTMLUListElement;
 
 	const navItems = [
 		{
@@ -20,19 +21,23 @@
 			path: 'about'
 		}
 	];
+
+	const handleClick = (e) => {
+		nav.scroll({ left: e.target.parentElement.offsetLeft, behavior: 'smooth' });
+	};
 </script>
 
 <nav>
 	<div>
 		<h1><a class="nav-title" href="{base}/">Housing Insecurity</a></h1>
-		<ul>
+		<ul bind:this={nav}>
 			{#each navItems as item}
 				<li>
 					<a
 						class:active={`${base}/${item.path}`.replace(/\/+$/, '') ===
 							$page.url.pathname.replace(/\/+$/, '')}
 						href="{base}/{item.path}"
-						data-sveltekit-noscroll
+						on:click={handleClick}
 					>
 						{item.name}
 					</a>
@@ -68,15 +73,21 @@
 		margin: 0 16px 0 0;
 		border-bottom: 6px solid var(--theme-color);
 		transition: border-bottom-color 0.2s ease-in-out;
+		white-space: nowrap;
 	}
 
 	ul {
+		position: relative;
 		display: flex;
-		justify-content: center;
 		align-items: center;
 		list-style: none;
-		margin: 0 0 8px;
+		margin: 0 16px 8px 0;
 		padding: 0;
+		overflow-x: scroll;
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
 	}
 
 	.nav-title {
