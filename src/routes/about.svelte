@@ -30,7 +30,7 @@
 				Politics Institute, developing policy tools and research that help stakeholders participate
 				in crucial policy conversations. Previously, she was a Senior Policy Associate at New
 				American Economy (NAE), a bipartisan research and advocacy organization dedicated to
-				immigration reform. At NAE, she used research to provide direct technical suppot to local
+				immigration reform. At NAE, she used research to provide direct technical support to local
 				governments committed to developing community-based solutions to improve local economic,
 				political, and social infrastructure.
 			</p>
