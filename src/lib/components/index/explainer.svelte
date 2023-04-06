@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Definition from '$components/index/definition.svelte';
+	import Definition from '$lib/components/index/definition.svelte';
 </script>
 
 <div>

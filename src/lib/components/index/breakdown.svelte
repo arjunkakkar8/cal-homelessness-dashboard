@@ -1,9 +1,9 @@
 <script lang="ts">
-	import ModuleContainer from './module-container.svelte';
-	import Hover from '$components/index/hover.svelte';
-	import Bars from '$components/index/bars.svelte';
-	import { breakdown_data } from '$stores/data';
-	import { color_list } from '$stores/colors';
+	import ModuleContainer from '$lib/components/index/module-container.svelte';
+	import Hover from '$lib/components/index/hover.svelte';
+	import Bars from '$lib/components/index/bars.svelte';
+	import { breakdown_data } from '$lib/stores/data';
+	import { color_list } from '$lib/stores/colors';
 	import { format } from 'd3-format';
 
 	let activeRace = '',

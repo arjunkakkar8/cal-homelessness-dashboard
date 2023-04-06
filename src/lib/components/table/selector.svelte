@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { table_mode } from '$stores/data';
+	import { table_mode } from '$lib/stores/data';
 
 	const setMode = (e) => {
 		const value = e.target.textContent;

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import Selector from '$components/table/selector.svelte';
-	import Table from '$components/table/table.svelte';
+	import Selector from '$lib/components/table/selector.svelte';
+	import Table from '$lib/components/table/table.svelte';
 </script>
 
 <div class="module-panel">

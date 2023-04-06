@@ -1,5 +1,5 @@
 <script>
-	import Bio from '$components/bio.svelte';
+	import Bio from '$lib/components/bio.svelte';
 </script>
 
 <div class="about-container">

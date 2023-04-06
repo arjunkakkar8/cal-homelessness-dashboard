@@ -1,7 +1,7 @@
 import { csvParse } from 'd3-dsv';
 import { readable, derived, writable } from 'svelte/store';
-import overallRaw from '../data/homeless_estimates.csv?raw';
-import pitRaw from '../data/pit_count.csv?raw';
+import overallRaw from '$lib/data/homeless_estimates.csv?raw';
+import pitRaw from '$lib/data/pit_count.csv?raw';
 
 interface DataRow {
 	county: string;

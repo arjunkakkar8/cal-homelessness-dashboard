@@ -1,5 +1,6 @@
 <script lang="ts">
-	import { color_list } from '$stores/colors';
+	import { color_list } from '$lib/stores/colors';
+
 	export let data;
 	export let heading;
 	export let activeRace;

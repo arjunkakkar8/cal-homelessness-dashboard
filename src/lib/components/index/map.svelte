@@ -1,11 +1,11 @@
 <script lang="ts">
-	import ModuleContainer from '$components/index/module-container.svelte';
-	import Hover from '$components/index/hover.svelte';
-	import { choropleth_data, geography } from '$stores/data';
-	import { choropleth_color_range } from '$stores/colors';
+	import ModuleContainer from '$lib/components/index/module-container.svelte';
+	import Hover from '$lib/components/index/hover.svelte';
+	import { choropleth_data, geography } from '$lib/stores/data';
+	import { choropleth_color_range } from '$lib/stores/colors';
 	import { onMount } from 'svelte';
-	import { browser } from '$app/env';
-	import shapefile from '../../data/ca_county_shapefile.json?raw';
+	import { browser } from '$app/environment';
+	import shapefile from '$lib/data/ca_county_shapefile.json?raw';
 	import { scaleLinear } from 'd3-scale';
 	import { format } from 'd3-format';
 	import 'leaflet/dist/leaflet.css';

@@ -1,5 +1,5 @@
 import { readable, derived } from 'svelte/store';
-import { race } from '$stores/data';
+import { race } from '$lib/stores/data';
 
 export const color_list = readable({
 	'all races': ['#B9E4FD', '#2ea0d6', '#00446B'],

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { table_data, table_mode, table_sort } from '$stores/data';
-	import { color_list } from '$stores/colors';
+	import { table_data, table_mode, table_sort } from '$lib/stores/data';
+	import { color_list } from '$lib/stores/colors';
 	import { format } from 'd3-format';
 	import { flip } from 'svelte/animate';
 

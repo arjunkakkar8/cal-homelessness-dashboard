@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { geography, race, geography_options, race_options } from '$stores/data';
+	import { geography, race, geography_options, race_options } from '$lib/stores/data';
 
 	let geo_width: number, race_width: number;
 

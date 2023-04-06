@@ -1,9 +1,9 @@
 <script>
-	import Explainer from '$components/index/explainer.svelte';
-	import Selector from '$components/index/selector.svelte';
-	import Map from '$components/index/map.svelte';
-	import Breakdown from '$components/index/breakdown.svelte';
-	import Snapshot from '$components/index/snapshot.svelte';
+	import Explainer from '$lib/components/index/explainer.svelte';
+	import Selector from '$lib/components/index/selector.svelte';
+	import Map from '$lib/components/index/map.svelte';
+	import Breakdown from '$lib/components/index/breakdown.svelte';
+	import Snapshot from '$lib/components/index/snapshot.svelte';
 </script>
 
 <div class="module-panel">
