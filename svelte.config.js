@@ -2,7 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
-const config = {
+export default {
 	preprocess: preprocess({
 		scss: {
 			prependData: `@import "./src/lib/styles/global.scss";`
@@ -13,5 +13,3 @@ const config = {
 		adapter: adapter()
 	}
 };
-
-export default config;
